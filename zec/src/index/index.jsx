@@ -8,6 +8,7 @@ function Index() {
       <header className='header'>吕肥肥</header>
       <header className='name'>王大熊</header>
       <Link to='/list'>列表</Link>
+      <div className='list'></div>
     </div>
   );
 }

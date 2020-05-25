@@ -1,11 +1,15 @@
 var webpack = require('webpack');
 var path = require('path');
-var bsvConf = require('../utils/bsv.js')();
 
-var rules = require('../config/rules.js');
-var plugin = require('../config/plugins.js');
-var optimization = require('../config/optimization.js');
-var devServer = require('../config/devServer.js');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var { CleanWebpackPlugin } = require('clean-webpack-plugin');
+var OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin'); // CSS压缩
+var ip = require('ip');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var uglifyjs = require('uglifyjs-webpack-plugin');
+
+var bsvConf = require('../utils/bsv.js')();
 
 var isPro = process.argv[2] === 'build';
 
@@ -32,12 +36,67 @@ module.exports = {
   },
   // loaders
   module: {
-   rules: [rules]
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: [
+          path.resolve(`${process.cwd()}/node_modules`)
+        ],
+        use: {
+          loader: 'babel-loader',
+          options: {
+            sourceType: 'unambiguous',
+            presets: [
+              '@babel/preset-env',
+              '@babel/preset-react'
+            ],
+            plugins: [
+              '@babel/plugin-transform-runtime' // babel-profiyy按需加载
+            ]
+          }
+        }
+      },
+      {
+        test: /\.(css|styl)$/,
+        exclude: /node_modules/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: ['css-loader', 'stylus-loader']
+        })
+      },
+      {
+        test: /\.(png|jpg|svg|gif)$/,
+        use: ['file-loader']
+      }
+    ]
   },
   // 优化
-  optimization: optimization,
+  optimization: {
+    minimizer: [
+      new OptimizeCSSAssetsPlugin({})
+    ]
+  },
   // 插件
-  plugins: plugin,
+  plugins: [
+    new CleanWebpackPlugin(),
+    new ExtractTextPlugin('style.css'),
+    // new uglifyjs(),
+    new HtmlWebpackPlugin({
+      template:  path.resolve(`${process.cwd()}/public/index.html`)
+    })
+  ],
   // 开发服务器
-  devServer: bsvConf.devServer || devServer
+  devServer: bsvConf.devServer || {
+    historyApiFallback: true,
+    host: ip.address(),
+    port: 7012,
+    contentBase:  [path.resolve(`${process.cwd()}/dist`), path.resolve(`${process.cwd()}/public`)],
+    compress: true,
+    proxy: {
+      "/api": {
+        target: "http://localhost:3000",
+        pathRewrite: {"^/api" : ""}
+      }
+    }
+  }
 }

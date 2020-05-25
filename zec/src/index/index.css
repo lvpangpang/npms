@@ -1,5 +1,7 @@
 .index-box {
   background: #d3767d;
   height: 100%;
-
+}
+.list {
+  height: 1000px;
 }
