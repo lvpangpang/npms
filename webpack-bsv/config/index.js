@@ -87,7 +87,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new ExtractTextPlugin('style.css'),
-    // new uglifyjs(),
+    new uglifyjs(),
     new HtmlWebpackPlugin({
       template:  path.resolve(`${process.cwd()}/public/index.html`)
     })
