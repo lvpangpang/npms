@@ -38,6 +38,13 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(ts|tsx)$/,
+        exclude: [
+          path.resolve(`${process.cwd()}/node_modules`)
+        ],
+        use: ['ts-loader']
+      },
+      {
         test: /\.(js|jsx)$/,
         exclude: [
           path.resolve(`${process.cwd()}/node_modules`)
