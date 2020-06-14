@@ -2,11 +2,8 @@ var webpack = require('webpack');
 var path = require('path');
 
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var { CleanWebpackPlugin } = require('clean-webpack-plugin');
-var OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin'); // CSS压缩
 var ip = require('ip');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var uglifyjs = require('uglifyjs-webpack-plugin');
 
 var bsvConf = require('../utils/bsv.js')();
@@ -66,10 +63,12 @@ module.exports = {
       {
         test: /\.(css|styl)$/,
         exclude: /node_modules/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: ['css-loader', 'stylus-loader']
-        })
+        use:  ['style-loader', 'css-loader', 'stylus-loader']
+      },
+      {
+        test: /\.less$/,
+        exclude: /node_modules/,
+        use:  ['style-loader', 'css-loader', 'less-loader']
       },
       {
         test: /\.(png|jpg|svg|gif)$/,
@@ -77,16 +76,9 @@ module.exports = {
       }
     ]
   },
-  // 优化
-  optimization: {
-    minimizer: [
-      new OptimizeCSSAssetsPlugin({})
-    ]
-  },
   // 插件
   plugins: [
     new CleanWebpackPlugin(),
-    new ExtractTextPlugin('style.css'),
     new uglifyjs(),
     new HtmlWebpackPlugin({
       template:  path.resolve(`${process.cwd()}/public/index.html`)
