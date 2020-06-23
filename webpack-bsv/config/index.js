@@ -1,13 +1,12 @@
 var webpack = require('webpack');
 var path = require('path');
 
+var ip = require('ip');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var { CleanWebpackPlugin } = require('clean-webpack-plugin');
-var ip = require('ip');
 var uglifyjs = require('uglifyjs-webpack-plugin');
 
 var bsvConf = require('../utils/bsv.js')();
-
 var isPro = process.argv[2] === 'build';
 
 module.exports = {
