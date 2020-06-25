@@ -48,15 +48,9 @@ ReactDOM.render(<Home/>, document.querySelector('#root'))
 #### 属性
 属性|说明|备注
 ---|---|---
-
 entry|入口配置(只限Spa项目)|参考[webpack entry](https://www.webpackjs.com/configuration/entry-context/#entry)
-
 output|输出配置| 参考[webpack output](https://www.webpackjs.com/configuration/output/)
-
 publicPath|文件输出目录|参考[webpack publicPath](https://www.webpackjs.com/configuration/output/#output-publicpath)
-
 alias|别名|默认@为src文件夹
-
 devServer|开发服务器配置|参考[webpack devServer](https://www.webpackjs.com/configuration/dev-server/)
-
 port|开发服务器端口号|默认值：6006
