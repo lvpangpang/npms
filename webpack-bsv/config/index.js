@@ -16,7 +16,7 @@ module.exports = {
   // 入口
   entry: bsvConf.entry || [path.resolve(`${process.cwd()}/src/index.js`)],
   // 出口
-  output: {
+  output: bsvConf.output || {
     path: path.resolve(`${process.cwd()}/dist`),
     filename: 'index.js',
     chunkFilename: '[name][contenthash].js',
