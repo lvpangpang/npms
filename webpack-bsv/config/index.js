@@ -1,10 +1,9 @@
 var webpack = require('webpack');
 var path = require('path');
 
-var ip = require('ip');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var { CleanWebpackPlugin } = require('clean-webpack-plugin');
-var uglifyjs = require('uglifyjs-webpack-plugin');
+var ip = require('ip');
 
 var bsvConf = require('../utils/bsv.js')();
 var isPro = process.argv[2] === 'build';
@@ -28,7 +27,7 @@ module.exports = {
     alias:  bsvConf.alias || {
       '@': path.resolve(`${process.cwd()}/src/`)
     },
-    extensions: ['.jsx', '.js', '.styl', '.css']
+    extensions: ['ts', 'tsx', '.jsx', '.js', '.styl', '.css', 'less']
   },
   // loaders
   module: {
@@ -78,7 +77,6 @@ module.exports = {
   // 插件
   plugins: [
     new CleanWebpackPlugin(),
-    new uglifyjs(),
     new HtmlWebpackPlugin({
       template:  path.resolve(`${process.cwd()}/public/index.html`)
     })
@@ -87,14 +85,8 @@ module.exports = {
   devServer: bsvConf.devServer || {
     historyApiFallback: true,
     host: ip.address(),
-    port: 7012,
+    port: bsvConf.port || 6006,
     contentBase:  [path.resolve(`${process.cwd()}/dist`), path.resolve(`${process.cwd()}/public`)],
-    compress: true,
-    proxy: {
-      "/api": {
-        target: "http://localhost:3000",
-        pathRewrite: {"^/api" : ""}
-      }
-    }
+    compress: true
   }
 }
