@@ -3,9 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "http-server-bsv": "bin/http-server-bsv.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "lvpangpang",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "commander": "^5.1.0",
+    "mime": "^2.4.6",
+    "pug": "^3.0.0",
+    "url": "^0.11.0",
+    "util": "^0.12.3"
+  }
 }
