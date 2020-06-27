@@ -9,6 +9,8 @@ const pug = require('pug');
 const mime = require('mime');
 const proxy = require('proxy');
 const iconv = require('iconv-lite');
+const ip = require('ip');
+const zlib = require('zlib');
 
 const config = require('./config');
 const stat = util.promisify(fs.stat);
@@ -21,6 +23,7 @@ class Server {
       ...config,
       ...command
     };
+    console.log(command);
     this.template = template;
   }
 
@@ -51,7 +54,7 @@ class Server {
         res.end(str);
       } else {
         // 文件处理
-        this.sendFile(res, p);
+        this.sendFile(req, res, statObj, p);
       }
     } catch(err) {
       if(proxyUrl) {
@@ -62,9 +65,31 @@ class Server {
     }
   }
 
-  sendFile(res, p) {
+  sendFile(req, res, statObj, p) {
     res.setHeader('Conetent-Type', mime.getType(p) + '; charset=UTF-8')
+     // 如果是需要压缩则定义gzip转化流，讲文件压缩后输出
+     let transform = this.gzip(req, res, statObj, p);
+     if (transform) {
+        return fs.createReadStream(p).pipe(transform).pipe(res);
+     }
     fs.createReadStream(p).pipe(res);
+  }
+
+  gzip(req, res, statObj, p) {
+    let encoding = req.headers['accept-encoding'];
+    if(encoding) {
+      if(encoding.match(/bgzip\b/)) {
+        res.setHeader('Content-Encoding', 'gzip');
+        return zlib.createGzip();
+      }
+      if (encoding.match(/\bdeflate\b/)) {
+        res.setHeader('Content-Encoding', 'deflate');
+        return zlib.createDeflate();
+      }
+      return false;
+    } else {
+      return false;
+    }
   }
 
   proxy(req, res, proxyUrl) {
@@ -83,8 +108,10 @@ class Server {
   // 启动
   start() {
     const server = http.createServer(this.handleRequest.bind(this));
-    server.listen(this.config.port, this.config.host, () => {
-      console.log(`server start http://${this.config.host}:${chalk.green(this.config.port)}`);
+    server.listen(this.config.port, () => {
+      console.log(chalk.yellow('Starting up http-server-bsv, serving ./'));
+      console.log(chalk.yellow('Available on:'));
+      console.log(`    http://${ip.address()}:${chalk.green(this.config.port)}`);
     });
   }
 }
