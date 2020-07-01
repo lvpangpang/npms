@@ -15,7 +15,7 @@ const zlib = require('zlib');
 const config = require('./config');
 const stat = util.promisify(fs.stat);
 const readdir = util.promisify(fs.readdir);
-const template = fs.readFileSync(path.join(__dirname, 'template.pug'), 'utf8')
+const template = fs.readFileSync(path.join(__dirname, 'template.pug'))
 
 class Server {
   constructor(command) {
@@ -23,7 +23,6 @@ class Server {
       ...config,
       ...command
     };
-    console.log(command);
     this.template = template;
   }
 
@@ -67,11 +66,11 @@ class Server {
 
   sendFile(req, res, statObj, p) {
     res.setHeader('Conetent-Type', mime.getType(p) + '; charset=UTF-8')
-     // 如果是需要压缩则定义gzip转化流，讲文件压缩后输出
-     let transform = this.gzip(req, res, statObj, p);
-     if (transform) {
+    // 如果是需要压缩则定义gzip转化流，讲文件压缩后输出
+    let transform = this.gzip(req, res, statObj, p);
+    if (transform) {
         return fs.createReadStream(p).pipe(transform).pipe(res);
-     }
+    }
     fs.createReadStream(p).pipe(res);
   }
 
@@ -102,7 +101,7 @@ class Server {
 
   sendError(res, err) {
     console.log(err);
-    res.end(`Error`);
+    res.end(err);
   }
 
   // 启动
