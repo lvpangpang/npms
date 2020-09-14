@@ -22,6 +22,12 @@ module.exports = {
     chunkFilename: '[name][contenthash].js',
     publicPath: isPro ? bsvConf.publicPath || './' : ''
   },
+  // 打包分离第三方依赖库，比如react
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
+  },
   // 解析
   resolve: {
     alias:  bsvConf.alias || {
