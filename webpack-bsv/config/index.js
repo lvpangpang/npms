@@ -33,7 +33,7 @@ module.exports = {
     alias:  bsvConf.alias || {
       '@': path.resolve(`${process.cwd()}/src/`)
     },
-    extensions: ['ts', 'tsx', '.jsx', '.js', '.styl', '.css', 'less']
+    extensions: ['.ts', '.tsx', '.jsx', '.js', '.styl', '.css', 'less']
   },
   // loaders
   module: {
