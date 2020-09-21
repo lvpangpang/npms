@@ -67,12 +67,12 @@ module.exports = {
       {
         test: /\.(css|styl)$/,
         exclude: /node_modules/,
-        use:  ['style-loader', 'css-loader', 'stylus-loader']
+        use:  ['style-loader', `css-loader${bsvConf.isCssModule ? '?modules' : ''}`, 'stylus-loader']
       },
       {
         test: /\.less$/,
         exclude: /node_modules/,
-        use:  ['style-loader', 'css-loader', 'less-loader']
+        use:  ['style-loader', `css-loader${bsvConf.isCssModule ? '?modules' : ''}`, 'less-loader']
       },
       {
         test: /\.(png|jpg|svg|gif)$/,
