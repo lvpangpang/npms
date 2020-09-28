@@ -2,11 +2,26 @@ var webpack = require('webpack');
 var path = require('path');
 
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CopyPlugin = require('copy-webpack-plugin');
 var { CleanWebpackPlugin } = require('clean-webpack-plugin');
 var ip = require('ip');
 
 var bsvConf = require('../utils/bsv.js')();
 var isPro = process.argv[2] === 'build';
+
+var postCssConfig = {
+  "browsers": [
+    '> 1% in CN',
+    'last 2 versions',
+    'Firefox >= 20',
+    'Safari >= 6',
+    'Explorer >= 9',
+    'Chrome >= 12',
+    'ChromeAndroid >= 4.4',
+    'iOS >= 6',
+    'and_uc >= 9.1'
+  ]
+};
 
 module.exports = {
   // 模式
@@ -18,8 +33,8 @@ module.exports = {
   // 出口
   output: bsvConf.output || {
     path: path.resolve(`${process.cwd()}/dist`),
-    filename: 'index.js',
-    chunkFilename: '[name][contenthash].js',
+    filename: 'js/index.js',
+    chunkFilename: 'js/[name][contenthash].js',
     publicPath: isPro ? bsvConf.publicPath || './' : ''
   },
   // 打包分离第三方依赖库，比如react
@@ -67,16 +82,40 @@ module.exports = {
       {
         test: /\.(css|styl)$/,
         exclude: /node_modules/,
-        use:  ['style-loader', `css-loader${bsvConf.isCssModule ? '?modules' : ''}`, 'stylus-loader']
+        use:  ['style-loader', `css-loader${bsvConf.isCssModule ? '?modules' : ''}`, {
+          loader: 'postcss-loader',
+          options: {
+            postcssOptions: {
+              plugins : [
+                require('autoprefixer')(postCssConfig)
+              ]
+            }
+          }
+        }, 'stylus-loader']
       },
       {
         test: /\.less$/,
         exclude: /node_modules/,
-        use:  ['style-loader', `css-loader${bsvConf.isCssModule ? '?modules' : ''}`, 'less-loader']
+        use:  ['style-loader', `css-loader${bsvConf.isCssModule ? '?modules' : ''}`, {
+          loader: 'postcss-loader',
+          options: {
+            postcssOptions: {
+              plugins : [
+                require('autoprefixer')(postCssConfig)
+              ]
+            }
+          }
+        },
+        'less-loader']
       },
       {
         test: /\.(png|jpg|svg|gif)$/,
-        use: ['file-loader']
+        use: [{
+          loader: 'file-loader',
+          options: {
+            outputPath: 'img/'
+          }
+        }]
       }
     ]
   },
@@ -85,6 +124,11 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template:  path.resolve(`${process.cwd()}/public/index.html`)
+    }),
+    new CopyPlugin({
+      patterns: [{ from: path.resolve(`${process.cwd()}/public`), 
+        to: path.resolve(`${process.cwd()}/dist`)
+      }]
     })
   ],
   // 开发服务器
