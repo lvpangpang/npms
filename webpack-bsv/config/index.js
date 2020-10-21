@@ -48,7 +48,7 @@ module.exports = {
     alias:  bsvConf.alias || {
       '@': path.resolve(`${process.cwd()}/src/`)
     },
-    extensions: ['.ts', '.tsx', '.jsx', '.js', '.styl', '.css', 'less']
+    extensions: ['.ts', '.tsx', '.jsx', '.js', '.styl', '.css', '.less']
   },
   // loaders
   module: {
@@ -125,11 +125,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       template:  path.resolve(`${process.cwd()}/public/index.html`)
     }),
-    new CopyPlugin({
+    isPro ? new CopyPlugin({
       patterns: [{ from: path.resolve(`${process.cwd()}/public`), 
         to: path.resolve(`${process.cwd()}/dist`)
       }]
-    })
+    }) : function() {}
   ],
   // 开发服务器
   devServer: bsvConf.devServer || {
