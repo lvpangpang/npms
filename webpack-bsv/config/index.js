@@ -22,7 +22,6 @@ var postCssConfig = {
     'and_uc >= 9.1'
   ]
 };
-
 module.exports = {
   // 模式
   mode: isPro ? 'production' : 'development',
@@ -74,24 +73,18 @@ module.exports = {
               '@babel/preset-react'
             ],
             plugins: [
-              '@babel/plugin-transform-runtime' // babel-profiyy按需加载
+              ["import", { libraryName: "antd-mobile", "style": "css" }],
+              '@babel/plugin-transform-runtime', // babel-profiyy按需加载
             ]
           }
         }
       },
       {
-        test: /\.(css|styl)$/,
-        exclude: /node_modules/,
-        use:  ['style-loader', `css-loader${bsvConf.isCssModule ? '?modules' : ''}`, {
-          loader: 'postcss-loader',
-          options: {
-            postcssOptions: {
-              plugins : [
-                require('autoprefixer')(postCssConfig)
-              ]
-            }
-          }
-        }, 'stylus-loader']
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+        ]
       },
       {
         test: /\.less$/,
@@ -109,11 +102,14 @@ module.exports = {
         'less-loader']
       },
       {
-        test: /\.(png|jpg|svg|gif)$/,
+        test: /\.(png|jpg|svg|gif|otf)$/,
         use: [{
-          loader: 'file-loader',
+          loader: 'url-loader',
           options: {
-            outputPath: 'img/'
+            options: {
+              limit: 1024
+            },
+            outputPath: 'file/'
           }
         }]
       }
@@ -121,7 +117,7 @@ module.exports = {
   },
   // 插件
   plugins: [
-    new CleanWebpackPlugin(),
+    isPro ? new CleanWebpackPlugin() : function() {},
     new HtmlWebpackPlugin({
       template:  path.resolve(`${process.cwd()}/public/index.html`)
     }),
