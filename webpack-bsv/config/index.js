@@ -22,6 +22,7 @@ var postCssConfig = {
     'and_uc >= 9.1'
   ]
 };
+
 module.exports = {
   // 模式
   mode: isPro ? 'production' : 'development',
@@ -73,8 +74,8 @@ module.exports = {
               '@babel/preset-react'
             ],
             plugins: [
-              ["import", { libraryName: "antd-mobile", "style": "css" }],
               '@babel/plugin-transform-runtime', // babel-profiyy按需加载
+              bsvConf.babelPlugins || {}
             ]
           }
         }
