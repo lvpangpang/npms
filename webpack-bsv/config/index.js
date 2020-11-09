@@ -6,22 +6,9 @@ var CopyPlugin = require('copy-webpack-plugin');
 var { CleanWebpackPlugin } = require('clean-webpack-plugin');
 var ip = require('ip');
 
+var postCssConfig = require('./postCss.js');
 var bsvConf = require('../utils/bsv.js')();
 var isPro = process.argv[2] === 'build';
-
-var postCssConfig = {
-  "browsers": [
-    '> 1% in CN',
-    'last 2 versions',
-    'Firefox >= 20',
-    'Safari >= 6',
-    'Explorer >= 9',
-    'Chrome >= 12',
-    'ChromeAndroid >= 4.4',
-    'iOS >= 6',
-    'and_uc >= 9.1'
-  ]
-};
 
 module.exports = {
   // 模式
@@ -75,7 +62,7 @@ module.exports = {
             ],
             plugins: [
               '@babel/plugin-transform-runtime', // babel-profiyy按需加载
-              bsvConf.babelPlugins || {}
+              bsvConf.babelPlugins || {} // 按需加载第三方组件库
             ]
           }
         }
