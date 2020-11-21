@@ -24,6 +24,7 @@ module.exports = async function(config) {
 
   }
   await exec(`cd ${name}&& npm i react react-dom webpack-bsv`);
+  console.log('模版文件生成成功'.green);
   console.log(`cd ${name} && npm run start`)
 
 };
