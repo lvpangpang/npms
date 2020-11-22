@@ -54,4 +54,4 @@ publicPath|文件输出目录|参考[webpack publicPath](https://www.webpackjs.c
 alias|别名|默认@为src文件夹
 devServer|开发服务器配置|参考[webpack devServer](https://www.webpackjs.com/configuration/dev-server/)
 port|开发服务器端口号|默认值：6006
-babelPlugins|第三方库按需加载|
+babelPlugins|babel插件配置(比如第三方库按需加载)|
