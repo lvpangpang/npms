@@ -4,7 +4,7 @@ import { Button } from 'antd-mobile'
 
 function App() {
   return <div>
-    <Button>点击</Button>
+    <Button onClick={() => {console.log(process.env.NODE_ENV)}}>点击</Button>
   </div>;
 }
 

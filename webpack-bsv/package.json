@@ -1,6 +1,6 @@
 {
   "name": "webpack-bsv",
-  "version": "1.4.8",
+  "version": "1.5.0",
   "description": "快速搭建前端React项目，减少webpack配置学习成本",
   "main": "index.js",
   "keywords": [

@@ -105,6 +105,9 @@ module.exports = {
   },
   // 插件
   plugins: [
+    new webpack.DefinePlugin({
+      'NODE_ENV': isPro ? 'production' : 'development',
+    }),
     isPro ? new CleanWebpackPlugin() : function() {},
     new HtmlWebpackPlugin({
       template:  path.resolve(`${process.cwd()}/public/index.html`)
