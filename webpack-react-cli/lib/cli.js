@@ -18,13 +18,9 @@ module.exports = async function(config) {
   }
   console.log('正在生成模板文件...');
   const shell = `cp -r ${tempalteDir} ${targetDir}`;
-  try {
-    await exec(shell);
-  } catch(error) {
-
-  }
+  await exec(shell);
+  console.log('npm i react react-dom webpack-bsv')
   await exec(`cd ${name}&& npm i react react-dom webpack-bsv`);
-  console.log('项目初始化成功'.green);
-  console.log(`cd ${name} && npm run start`)
-
+  console.log('模版文件生成成功'.green);
+  console.log(`cd ${name} && npm run start`.green)
 };
