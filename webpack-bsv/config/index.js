@@ -41,14 +41,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/,
-        exclude: [
-          path.resolve(`${process.cwd()}/node_modules`)
-        ],
-        use: ['ts-loader']
-      },
-      {
-        test: /\.(js|jsx)$/,
+        test: /\.(ts|tsx|js|jsx)$/,
         exclude: [
           path.resolve(`${process.cwd()}/node_modules`)
         ],
@@ -58,7 +51,8 @@ module.exports = {
             sourceType: 'unambiguous',
             presets: [
               '@babel/preset-env',
-              '@babel/preset-react'
+              '@babel/preset-react',
+              '@babel/preset-typescript' // 这样处理才能使ts，tsx这种代码分割
             ],
             plugins: [
               '@babel/plugin-transform-runtime', // babel-profiyy按需加载
