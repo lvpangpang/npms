@@ -16,7 +16,7 @@ module.exports = {
   // 开发环境开启源代码查看功能
   devtool: isPro ? '' : 'inline-source-map',
   // 入口
-  entry: bsvConf.entry || [path.resolve(`${process.cwd()}/src/index.js`)],
+  entry: path.resolve(`${process.cwd()}${bsvConf.entry || '/src/index.js'}`),
   // 出口
   output: bsvConf.output || {
     path: path.resolve(`${process.cwd()}/dist`),
