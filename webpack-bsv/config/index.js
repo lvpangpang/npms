@@ -52,11 +52,16 @@ module.exports = {
             presets: [
               '@babel/preset-env',
               '@babel/preset-react',
-              '@babel/preset-typescript' // 这样处理才能使ts，tsx这种代码分割
+              '@babel/preset-typescript'
             ],
             plugins: [
-              '@babel/plugin-transform-runtime', // babel-profiyy按需加载
-              bsvConf.babelPlugins || {} // 按需加载第三方组件库
+              [
+                '@babel/plugin-transform-runtime',
+                {
+                  "corejs": 2
+                }
+              ],
+              bsvConf.babelPlugins || {}
             ]
           }
         }

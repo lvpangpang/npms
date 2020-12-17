@@ -6,7 +6,6 @@ import {
 } from 'react-router-dom';
 
 import history from './history';
-import RouterConfig from './config';
 
 const Home = React.lazy(() => import('@/pages/home'));
 const Detail = React.lazy(() => import('@/pages/detail'));
