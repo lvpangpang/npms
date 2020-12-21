@@ -61,7 +61,7 @@ module.exports = {
                   "corejs": 2
                 }
               ],
-              bsvConf.babelPlugins || {}
+              ...(bsvConf.babelPlugins|| [])
             ]
           }
         }

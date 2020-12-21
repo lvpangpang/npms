@@ -1,6 +1,6 @@
 {
   "name": "webpack-bsv",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "快速搭建前端React项目，减少webpack配置学习成本",
   "main": "index.js",
   "keywords": [
@@ -44,6 +44,8 @@
     "webpack-merge": "^4.2.2"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-decorators": "^7.12.1",
     "@types/react": "^17.0.0",
     "antd-mobile": "^2.3.4",
     "react": "^17.0.1",
