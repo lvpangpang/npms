@@ -20,7 +20,7 @@ module.exports = {
   // 出口
   output: bsvConf.output || {
     path: path.resolve(`${process.cwd()}/dist`),
-    filename: 'js/index.js',
+    filename: 'js/index[contenthash].js',
     chunkFilename: 'js/[name][contenthash].js',
     publicPath: isPro ? bsvConf.publicPath || './' : ''
   },
