@@ -1,0 +1,52 @@
+{
+  "name": "webpack-react-admin",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "webpack-react-admin": "bin/index.js"
+  },
+  "scripts": {},
+  "author": "lvpangpang",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-decorators": "^7.12.1",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.12.7",
+    "@babel/runtime-corejs3": "^7.12.5",
+    "autoprefixer": "^8.0.0",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-import": "^1.13.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.1.1",
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.5.3",
+    "html-webpack-plugin": "^4.2.0",
+    "ip": "^1.1.5",
+    "less": "^3.11.2",
+    "less-loader": "^6.1.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss": "^8.1.0",
+    "postcss-loader": "^4.0.2",
+    "style-loader": "^1.2.0",
+    "ts-loader": "^7.0.5",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "url-loader": "^4.1.1",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^4.2.2"
+  },
+  "devDependencies": {
+    "antd-mobile": "^2.3.4",
+    "mobx": "^6.0.4",
+    "mobx-react": "^7.0.5",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0"
+  }
+}
