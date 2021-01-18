@@ -9,7 +9,7 @@ var color = require('colors');
 module.exports = async function(config) {
   const { name } = config;
   const cwd = process.cwd();
-  const tempalteDir = path.join(__dirname, '../template/react-js');
+  const tempalteDir = path.join(__dirname, '../template/H5');
   const targetDir = path.join(cwd, name);
 
   if(fs.existsSync(targetDir)) {
@@ -19,8 +19,15 @@ module.exports = async function(config) {
   console.log('正在生成模板文件...');
   const shell = `cp -r ${tempalteDir} ${targetDir}`;
   await exec(shell);
-  console.log('npm i react react-dom webpack-bsv')
-  await exec(`cd ${name}&& npm i react react-dom webpack-bsv`);
-  console.log('模版文件生成成功'.green);
+  console.log('模板文件生成成功'.green);
+
+  console.log('开始安装生产依赖...');
+  await exec(`cd ${name} && npm i react react-dom react-router-dom mobx mobx-react antd-mobile`);
+  console.log('生产依赖生成成功'.green);
+
+  console.log('开始安装开发依赖...');
+  await exec(`cd ${name} && npm i webpack-react-admin -D`);
+  console.log('开发依赖安装成功'.green);
+
   console.log(`cd ${name} && npm run start`.green)
 };
