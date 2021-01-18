@@ -5,8 +5,8 @@ import { observer, useLocalStore } from 'mobx-react';
 import { Button } from 'antd-mobile';
 
 import store from '@/store';
-import Style from './index.less';
-
+import Style1 from './index.css';
+import Style2 from './index.less';
 
 const promise = new Promise((resolve, reject) => {
   resolve('吕肥肥886')
@@ -20,11 +20,12 @@ hello().then((data) => {
   console.log(data);
 });
 
-function Index() {
+function Index(props) {
   const homeStore = useLocalStore(() => store.homeStore);
   return (
     <div className='home-box'>
-      <div className={Style.text}>{`首页数据: ${homeStore.num}`}</div>
+      <div className={Style1.text}>{`首页数据: ${homeStore.num}`}</div>
+      <div className={Style2.text}>{`首页数据: ${homeStore.num}`}</div>
       <div>
         <Button type='primary' onClick={homeStore.setNum}>点我</Button>
       </div>

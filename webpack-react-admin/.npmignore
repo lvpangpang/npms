@@ -1,7 +1,6 @@
 node_modules
-Example
-tsconfig.json
+public
 src
 admin.config.js
 tsconfig.json
-
+dist
