@@ -4,7 +4,9 @@ var prodConf = require('../config/index.js')
 
 webpack(prodConf, (err, stats) => {
   if (err || stats.hasErrors()) {
-    console.log(stats.errors);
+    console.log('打包出错了');
+    console.log(err);
+    console.log(stats);
     return
   }
   process.stdout.write(stats.toString({
