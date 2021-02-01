@@ -22,7 +22,7 @@ module.exports = {
     path: path.resolve(`${process.cwd()}/dist`),
     filename: 'js/index[contenthash].js',
     chunkFilename: 'js/[name][contenthash].js',
-    publicPath: isPro ? bsvConf.publicPath || './' : ''
+    publicPath: isPro ? bsvConf.publicPath || '/' : '/'
   },
   // 打包分离第三方依赖库，比如react
   optimization: {
