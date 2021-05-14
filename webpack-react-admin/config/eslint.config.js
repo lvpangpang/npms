@@ -1,4 +1,4 @@
-const { join } = require("path");
+const { join } = require('path')
 
 module.exports = {
   root: true,
@@ -8,9 +8,9 @@ module.exports = {
       legacyDecorators: true,
     },
     babelOptions: {
-      // configFile: join(__dirname, "babel.config.js"),
+      configFile: join(__dirname, "babel.config.js"),
     },
   },
   parser: "@babel/eslint-parser",
-  extends: ["react-eslint-config"],
+  // extends: ["react-eslint-config"],
 };

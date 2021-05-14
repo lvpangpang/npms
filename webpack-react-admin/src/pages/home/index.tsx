@@ -1,11 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { observer, useLocalStore } from 'mobx-react';
+import React from "react";
+import { Link } from "react-router-dom";
+import { observer, useLocalStore } from "mobx-react";
 
-import { Button } from 'antd-mobile';
+import { Button } from "antd-mobile";
 
-import store from '@/store';
-import './index.less';
+import store from "@/store";
+import "./index.less";
 
 function Index(props) {
   const homeStore = useLocalStore(() => store.homeStore);

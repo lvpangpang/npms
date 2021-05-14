@@ -41,6 +41,6 @@ module.exports = {
     'prefer-destructuring': ['warn', { object: true, array: false }],
     'space-before-blocks': 'warn',
     'space-infix-ops': 'warn',
-    'prefer-promise-reject-errors': 0
-  }
-};
+    'prefer-promise-reject-errors': 0,
+  },
+}

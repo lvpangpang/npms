@@ -1,26 +1,43 @@
 ## React-eslint-config
-专门为react项目编写的eslint配置，支持ts，tsx
+
+专门为 react 项目编写的 eslint 配置
 
 ### 使用
-编辑器需要先安装对应的插件
-Eslint，StyleLint
+
+结合 webpack 使用
 
 ```
 npm i react-eslint-config --D
 ```
-mkdir .eslintrc.js
-```
-const { eslint } = require('react-eslint-config');
-module.exports = eslint();
-// 支持ts，tsx项目
-module.exports = eslint({ts: true});
-```
-mkdir .stylelintrc.js
-```
-const { stylelint } = require('react-eslint-config')
-module.exports = stylelint;
-```
 
+eslint.config.js
+```
+const { join } = require('path')
+const  eslint  = require("react-eslint-config");
 
+module.exports = {
+  root: true,
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+      legacyDecorators: true,
+    },
+    babelOptions: {
+      configFile: join(__dirname, "babel.config.js"),
+    },
+  },
+  parser: "@babel/eslint-parser",
+  extends: [eslint],
+};
 
-
+```
+webpack.config.js
+```
+new ESLintPlugin({
+  formatter: require("eslint-friendly-formatter"),
+  overrideConfigFile: path.join(__dirname, "./eslint.config.js"),
+  fix: false,
+  useEslintrc: false,
+  extensions: ["js", "jsx", "tsx"],
+})
+```

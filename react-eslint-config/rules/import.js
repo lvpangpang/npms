@@ -12,6 +12,19 @@ module.exports = {
     'import/no-amd': 'error',
     'import/no-webpack-loader-syntax': 'error',
     'import/no-cycle': 0,
-    'import/dynamic-import-chunkname': 0
+    'import/dynamic-import-chunkname': 0,
+    // 不允许导出匿名
+    'import/no-anonymous-default-export': [
+      'error',
+      {
+        allowArray: true,
+        allowArrowFunction: false,
+        allowAnonymousClass: false,
+        allowAnonymousFunction: false,
+        allowCallExpression: true,
+        allowLiteral: true,
+        allowObject: true,
+      },
+    ],
   },
 }

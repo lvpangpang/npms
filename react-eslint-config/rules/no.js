@@ -117,4 +117,4 @@ module.exports = {
     'no-confusing-arrow': 0,
     'no-trailing-spaces': 0,
   },
-};
+}
