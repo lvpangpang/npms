@@ -4,6 +4,15 @@ const adminConf = require("../utils/index.js")();
 const babelConfig = require("./babel.config.js");
 const postCssConfig = require("./postCss.config.js");
 
+const postCssLoader = {
+  loader: "postcss-loader",
+  options: {
+    postcssOptions: {
+      plugins: [require("autoprefixer")(postCssConfig)],
+    },
+  },
+};
+
 const parseConfig = {
   rules: [
     {
@@ -19,17 +28,20 @@ const parseConfig = {
     },
     {
       test: /\.css$/,
+      exclude: /node_modules/,
       use: [
         "style-loader",
         `css-loader${adminConf.isCssModule ? "?modules" : ""}`,
-        {
-          loader: "postcss-loader",
-          options: {
-            postcssOptions: {
-              plugins: [require("autoprefixer")(postCssConfig)],
-            },
-          },
-        },
+        postCssLoader
+      ],
+    },
+    {
+      test: /\.css$/,
+      include: /node_modules/,
+      use: [
+        "style-loader",
+        "css-loader",
+        postCssLoader
       ],
     },
     {
@@ -38,14 +50,7 @@ const parseConfig = {
       use: [
         "style-loader",
         `css-loader${adminConf.isCssModule ? "?modules" : ""}`,
-        {
-          loader: "postcss-loader",
-          options: {
-            postcssOptions: {
-              plugins: [require("autoprefixer")(postCssConfig)],
-            },
-          },
-        },
+        postCssLoader,
         "less-loader",
       ],
     },

@@ -12,7 +12,7 @@ module.exports = {
   // 模式
   mode: isPro ? "production" : "development",
   // 开发环境开启源代码查看功能
-  devtool: isPro ? "" : "inline-source-map",
+  devtool: isPro ? "source-map" : "inline-source-map",
   // 入口
   entry: path.resolve(`${cwd}${adminConf.entry || "/src/index.js"}`),
   // 出口

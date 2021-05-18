@@ -5,13 +5,13 @@ import { observer, useLocalStore } from "mobx-react";
 import { Button } from "antd-mobile";
 
 import store from "@/store";
-import "./index.less";
+import styles from "./index.less";
 
 function Index(props) {
   const homeStore = useLocalStore(() => store.homeStore);
   return (
-    <div className="home-box">
-      <div className="text">{`首页数据: ${homeStore.num}`}</div>
+    <div className={styles.home_box}>
+      <div className={styles.text}>{`首页数据: ${homeStore.num}`}</div>
       <div>
         <Button type="primary" onClick={homeStore.setNum}>
           点我
