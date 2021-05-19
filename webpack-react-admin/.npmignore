@@ -1,6 +1,6 @@
 node_modules
-public
-src
+Example
 admin.config.js
 tsconfig.json
 dist
+package-lock.json

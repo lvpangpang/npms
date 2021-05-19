@@ -12,7 +12,7 @@ module.exports = {
   // 模式
   mode: isPro ? "production" : "development",
   // 开发环境开启源代码查看功能
-  devtool: isPro ? "source-map" : "inline-source-map",
+  devtool: isPro ? "" : "inline-source-map",
   // 入口
   entry: path.resolve(`${cwd}${adminConf.entry || "/src/index.js"}`),
   // 出口
@@ -39,7 +39,6 @@ module.exports = {
   devServer: adminConf.devServer || {
     historyApiFallback: true,
     host: ip.address(),
-    port: adminConf.port || "1234",
     contentBase: [path.resolve(`${cwd}/dist`), path.resolve(`${cwd}/public`)],
     compress: true,
     overlay: true, // 错误显示在浏览器

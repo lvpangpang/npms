@@ -9,7 +9,8 @@ const babelConfig = {
         targets: {
           browsers: ["> 1%", "last 2 versions"],
         },
-        useBuiltIns: "usage",
+        // useBuiltIns: "usage",
+        // useBuiltIns: "entry",
         corejs: 3,
       },
     ],

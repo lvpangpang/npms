@@ -1,11 +1,17 @@
-const webpackDevServer = require('webpack-dev-server')
-const webpack = require('webpack')
+const webpack = require("webpack");
+const webpackDevServer = require("webpack-dev-server");
+const webpackConfig = require("../config/webpack.config.js");
+const adminConf = require("../utils/index.js")();
 
-const webpackConfig = require('../config/webpack.config.js')
-const options = webpackConfig.devServer
+const getUnoccupiedPort = require('../utils/getUnoccupiedPort.js')
 
-webpackDevServer.addDevServerEntrypoints(webpackConfig, options)
-const compiler = webpack(webpackConfig)
-const devServer = new webpackDevServer(compiler, options)
+async function start() {
+  const port = await getUnoccupiedPort(adminConf.port);
+  const options = Object.assign(webpackConfig.devServer, { port });
+  webpackDevServer.addDevServerEntrypoints(webpackConfig, options);
+  const compiler = webpack(webpackConfig);
+  const devServer = new webpackDevServer(compiler, options);
+  devServer.listen(port, options.host);
+}
 
-devServer.listen(options.port, options.host)
+start();

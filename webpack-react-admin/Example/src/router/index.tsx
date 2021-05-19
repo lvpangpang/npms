@@ -7,9 +7,9 @@ import {
 
 import history from './history';
 
-const Home = React.lazy(() => import('@/pages/home'));
-const Detail = React.lazy(() => import('@/pages/detail'));
-const List = React.lazy(() => import("@/pages/list"));
+const Home = React.lazy(() => import('../pages/home'));
+const Detail = React.lazy(() => import('../pages/detail'));
+const List = React.lazy(() => import("../pages/list"));
 
 export default function Index() {
   return (
