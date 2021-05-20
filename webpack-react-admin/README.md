@@ -1,8 +1,10 @@
 ### webpack-react-admin
 快速搭建前端React项目，减少webpack配置学习成本  
 1. 支持ts, tsx, js,jsx, less,css等文件类型的编译打包
-2. 内置babel-polyfill
+2. 内置corejs3
 3. 支持装饰器
+4. 自动使用空闲端口启动服务
+5. 支持css模块化
 
 #### Install
 ```bash

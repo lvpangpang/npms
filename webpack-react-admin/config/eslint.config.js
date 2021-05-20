@@ -13,5 +13,6 @@ module.exports = {
   },
   parser: "@babel/eslint-parser",
   // extends: ["react-eslint-config"],
-  extends: ["../node_modules/react-eslint-config/index.js"],
+  // extends: ["../node_modules/react-eslint-config/index.js"],
+  extends: ["../../react-eslint-config/index.js"],
 };
