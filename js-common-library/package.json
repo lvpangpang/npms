@@ -1,0 +1,19 @@
+{
+  "name": "js-common-library",
+  "version": "1.0.1",
+  "description": "js",
+  "main": "es/index.js",
+  "module": "es/index.js",
+  "scripts": {
+    "build": "father-build build"
+  },
+  "files": [
+    "es",
+    "lib"
+  ],
+  "author": "lvpangpang",
+  "license": "ISC",
+  "devDependencies": {
+    "father-build": "^1.19.6"
+  }
+}

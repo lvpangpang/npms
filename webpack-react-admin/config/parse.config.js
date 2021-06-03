@@ -17,7 +17,7 @@ const parseConfig = {
   rules: [
     {
       test: /\.(ts|tsx|js|jsx)$/,
-      exclude: [path.resolve(`${cwd}/node_modules`)],
+      include: [path.resolve(`${cwd}/src`)],
       use: {
         loader: "babel-loader",
         options: {

@@ -3,7 +3,7 @@ const webpackConfig = require('../config/webpack.config.js')
 
 webpack(webpackConfig, (err, stats) => {
   if (err || stats.hasErrors()) {
-    console.log(stats);
+    console.log(err);
     return
   }
   process.stdout.write(stats.toString({

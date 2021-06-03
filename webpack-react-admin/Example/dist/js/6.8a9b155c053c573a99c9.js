@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{225:function(n,o,c){"use strict";c.r(o);c(58),c(59),c(0);var e=c(3);new Promise((function(n,o){console.log("abc")}));o.default=function(n){return Object(e.jsx)("div",{children:"哈哈"})}}}]);

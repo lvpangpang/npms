@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{140:function(n,e,o){"use strict";o.r(e);var c=o(0),t=o.n(c);new Promise((function(n,e){console.log("abc")}));e.default=function(n){return t.a.createElement("div",null,"哈哈")}}}]);
