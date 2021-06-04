@@ -1,6 +1,6 @@
 {
   "name": "webpack-react-cli",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "",
   "main": "index.js",
   "bin": {
@@ -12,7 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "colors": "^1.4.0",
+    "chalk": "^4.1.1",
+    "cli-spinner": "^0.2.10",
     "commander": "^6.2.0"
   }
 }

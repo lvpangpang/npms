@@ -1,6 +1,6 @@
 {
   "name": "webpack-react-admin",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "快速搭建前端React项目，减少webpack配置学习成本",
   "main": "index.js",
   "bin": {
@@ -39,11 +39,9 @@
     "less": "3.11.2",
     "less-loader": "6.1.0",
     "optimize-css-assets-webpack-plugin": "5.0.3",
-    "postcss": "8.1.0",
-    "postcss-loader": "4.0.2",
-    "react-eslint-config": "0.0.2",
+    "postcss-loader": "4.2.0",
+    "react-eslint-config": "^0.0.2",
     "style-loader": "1.2.0",
-    "ts-loader": "7.0.5",
     "uglifyjs-webpack-plugin": "2.2.0",
     "url-loader": "4.1.1",
     "webpack": "4.42.1",
@@ -54,7 +52,7 @@
   "devDependencies": {
     "antd-mobile": "2.3.4",
     "mobx": "6.0.4",
-    "mobx-react": "7.0.5",
+    "mobx-react-lite": "3.2.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-router-dom": "5.2.0"

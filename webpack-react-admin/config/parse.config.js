@@ -40,8 +40,7 @@ const parseConfig = {
       include: /node_modules/,
       use: [
         "style-loader",
-        "css-loader",
-        postCssLoader
+        "css-loader"
       ],
     },
     {

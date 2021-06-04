@@ -1,13 +1,13 @@
-import { makeAutoObservable } from 'mobx';
+import { makeAutoObservable } from 'mobx'
 
 class HomeStore {
   constructor() {
-    makeAutoObservable(this);
+    makeAutoObservable(this)
   }
-  num=1;
+  num = 1
   setNum = () => {
-    this.num++;
+    this.num++
   }
 }
 
-export default HomeStore;
+export default new HomeStore()

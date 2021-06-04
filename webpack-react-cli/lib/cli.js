@@ -4,7 +4,11 @@ var path = require('path');
 var { exec } = require('child_process');
 var exec = util.promisify(exec);
 
-var color = require('colors');
+var chalk = require("chalk");
+var Spinner = require("cli-spinner").Spinner;
+
+var spinner = new Spinner("%s");
+spinner.setSpinnerString("|/-\\");
 
 module.exports = async function(config) {
   const { name } = config;
@@ -13,21 +17,22 @@ module.exports = async function(config) {
   const targetDir = path.join(cwd, name);
 
   if(fs.existsSync(targetDir)) {
-    console.log(`当前目录已经存在文件夹${name}`.red);
+    console.log(chalk.red(`✖ 当前目录已经存在文件夹${name}`));
     process.exit();
   }
-  console.log('正在生成模板文件...');
+  
+  console.log('正在拉取模板文件...');
+  spinner.start();
   const shell = `cp -r ${tempalteDir} ${targetDir}`;
   await exec(shell);
-  console.log('模板文件生成成功'.green);
-
-  console.log('开始安装生产依赖...');
-  await exec(`cd ${name} && npm i react react-dom react-router-dom mobx mobx-react antd-mobile`);
-  console.log('生产依赖生成成功'.green);
+  spinner.stop();
+  console.log(chalk.green("✔ 模板文件生成成功"));
 
   console.log('开始安装开发依赖...');
+  spinner.start();
   await exec(`cd ${name} && npm i webpack-react-admin -D`);
-  console.log('开发依赖安装成功'.green);
+  spinner.stop();
+  console.log(chalk.green("✔ 开发依赖安装成功"));
 
-  console.log(`cd ${name} && npm run start`.green)
+  console.log(chalk.green(`cd ${name} && npm install or yarn && npm start`));
 };
