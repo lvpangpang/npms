@@ -1,15 +1,11 @@
-import React, { Suspense } from 'react';
-import {
-  Router,
-  Switch,
-  Route
-} from 'react-router-dom';
+import React, { Suspense } from 'react'
+import { Router, Switch, Route } from 'react-router-dom'
 
-import history from './history';
+import history from './history'
 
-const Home = React.lazy(() => import('../pages/home'));
-const Detail = React.lazy(() => import('../pages/detail'));
-const List = React.lazy(() => import("../pages/list"));
+const Home = React.lazy(() => import('../pages/home'))
+const Detail = React.lazy(() => import('../pages/detail'))
+const List = React.lazy(() => import('../pages/list'))
 
 export default function Index() {
   return (
@@ -22,5 +18,5 @@ export default function Index() {
         </Switch>
       </Suspense>
     </Router>
-  );
+  )
 }

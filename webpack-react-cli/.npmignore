@@ -1,6 +1,5 @@
 node_modules
 test
-admin.config.js
 tsconfig.json
 dist
 package-lock.json

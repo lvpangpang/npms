@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react'
 
 let promise = new Promise((resolve, reject) => {
-  console.log("abc");
-});
+  console.log('abc')
+})
 
 function Index(props) {
-  return <div>哈哈</div>;
+  return <div>哈哈</div>
 }
 
-export default Index;
+export default Index
