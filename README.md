@@ -4,4 +4,4 @@
 3. webpack-react-admin
 4. webpack-react-cli
 5. react-eslint-config
-6. js-utils
+6. js-common-library

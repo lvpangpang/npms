@@ -1,13 +1,13 @@
-import React, { Suspense } from 'react';
+import React, { Suspense } from 'react'
 import {
   Router,
   Switch,
   Route
-} from 'react-router-dom';
+} from 'react-router-dom'
 
-import history from './history';
+import history from './history'
 
-const Home = React.lazy(() => import('../pages/home'));
+const Home = React.lazy(() => import('../pages/home'))
 
 export default function Index() {
   return (
@@ -18,5 +18,5 @@ export default function Index() {
         </Switch>
       </Suspense>
     </Router>
-  );
+  )
 }
