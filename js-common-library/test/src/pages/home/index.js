@@ -16,6 +16,10 @@ function Index() {
         <Button type="primary" onClick={store.setNum}>
           点我
         </Button>
+        <br/>
+        <Button type="primary" onClick={store.login}>
+          登录
+        </Button>
       </div>
       {/* {store.list} */}
     </div>

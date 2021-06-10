@@ -17,10 +17,8 @@ function request(http) {
     (userConfig) => {
       const glocalConfig = http.prototype.glocalConfig
       const { headers } = glocalConfig
-      const headersRes = { ...(userConfig.headers), ...headers }
-      delete glocalConfig.headers
-      delete userConfig.headers
-      const config = { ...userConfig, ...glocalConfig, ...{ headers: headersRes } }
+      const config = { ...userConfig, ...glocalConfig }
+      config.headers = headers // 注意这里，直接赋值headers
       const { method, transformRequest } = config
 
       if (method === 'get') {

@@ -1,6 +1,6 @@
 {
   "name": "webpack-react-admin",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "快速搭建前端React项目，减少webpack配置学习成本",
   "main": "index.js",
   "bin": {
@@ -41,7 +41,7 @@
     "open": "8.2.0",
     "optimize-css-assets-webpack-plugin": "5.0.3",
     "postcss-loader": "4.2.0",
-    "react-eslint-config": "^0.0.4",
+    "react-eslint-config": "^0.0.5",
     "style-loader": "1.2.0",
     "uglifyjs-webpack-plugin": "2.2.0",
     "url-loader": "4.1.1",
