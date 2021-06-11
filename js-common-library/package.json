@@ -16,6 +16,6 @@
     "father-build": "^1.19.6"
   },
   "dependencies": {
-    "axios": "^0.21.1"
+    "axios": "0.21.1"
   }
 }
