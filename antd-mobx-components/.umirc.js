@@ -1,7 +1,7 @@
 export default {
-  title: 'antd-mobx',
-  // logo: '/logo.png',
-  // favicon: '/logo.png',
+  title: 'components',
+  logo: '/logo.png',
+  favicon: '/logo.png',
   resolve: {
     includes: ['example'],
   },

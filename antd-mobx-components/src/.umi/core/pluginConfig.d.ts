@@ -245,23 +245,30 @@ title?: string
 mock?: {
 exclude?: string[]
 }
+themeConfig?: {
+
+}
+logo?: (string | boolean)
+mode?: any
 description?: string
-logo?: string
-locales?: any[]
-mode?: string
+locales?: string[][]
+resolve?: {
+
+}
 menus?: {
 
 }
 navs?: (any[] | {
 
 })
-resolve?: {
-
-}
 algolia?: {
 apiKey?: string
 indexName?: string
 debug?: boolean
+}
+sitemap?: {
+hostname?: string
+excludes?: string[]
 }
 [k: string]: any
 }
