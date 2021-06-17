@@ -68,7 +68,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "example/button.md",
-          "updatedTime": 1623398987000,
+          "updatedTime": 1623747210000,
           "slugs": [
             {
               "depth": 2,
@@ -91,12 +91,35 @@ export function getRoutes() {
         "title": "Button"
       },
       {
+        "path": "/search-bar",
+        "component": require('C:/Users/86157/Desktop/吕肥肥的github/npms/antd-mobx-components/example/searchBar.md').default,
+        "exact": true,
+        "meta": {
+          "filePath": "example/searchBar.md",
+          "updatedTime": 1623913306268,
+          "slugs": [
+            {
+              "depth": 2,
+              "value": "SearchBar",
+              "heading": "searchbar"
+            },
+            {
+              "depth": 3,
+              "value": "默认配置",
+              "heading": "默认配置"
+            }
+          ],
+          "title": "SearchBar"
+        },
+        "title": "SearchBar"
+      },
+      {
         "path": "/select",
         "component": require('C:/Users/86157/Desktop/吕肥肥的github/npms/antd-mobx-components/example/select.md').default,
         "exact": true,
         "meta": {
           "filePath": "example/select.md",
-          "updatedTime": 1623746401313,
+          "updatedTime": 1623747210000,
           "slugs": [
             {
               "depth": 2,
