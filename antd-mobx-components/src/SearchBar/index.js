@@ -1,5 +1,9 @@
+import { useEffect } from 'react'
+import { observer } from 'mobx-react-lite'
 import { Form, Button, Row, Col } from 'antd'
 import { SearchOutlined, EditOutlined, DownOutlined, UpOutlined } from '@ant-design/icons'
+
+import SearchStore from './store'
 
 const Item = Form.Item
 
@@ -22,27 +26,56 @@ function SearchItem({ col = 6, children, ...rest }) {
   )
 }
 
-function SearchBar({ children, extra=[], ...rest }) {
+function SearchBar({ children, cache = true, store, extra = [], ...rest }) {
   const [form] = Form.useForm()
+
+  const handleSearch = () => {
+    const params = form.getFieldsValue()
+    SearchStore.setParams(params)
+    store.fetchList(params)
+  }
+
+  const handleRest = () => {
+    SearchStore.setParams({})
+    form.resetFields()
+  }
+
+  useEffect(() => {
+    form.setFieldsValue(SearchStore.params)
+    return () => {
+      if(!cache) {
+        console.log(123)
+        SearchStore.setParams({})
+      }
+    }
+  }, [])
+
   return (
     <Form form={form} {...layout} {...rest}>
       <Row>{children}</Row>
       <div style={{ textAlign: 'right' }}>
-        <Button type="primary" icon={<SearchOutlined />} htmlType="submit" style={Style.button}>
+        <Button
+          type="primary"
+          icon={<SearchOutlined />}
+          onClick={handleSearch}
+          style={Style.button}
+        >
           搜索
         </Button>
-        <Button icon={<EditOutlined />} style={Style.button}>
+        <Button icon={<EditOutlined />} style={Style.button} onClick={handleRest}>
           清空
         </Button>
-        {
-          extra.map((item) => {
-            return <span style={Style.button}>{item}</span>
-          })
-        }
+        {extra.map((item, index) => {
+          return (
+            <span style={Style.button} key={index}>
+              {item}
+            </span>
+          )
+        })}
       </div>
     </Form>
   )
 }
 
 SearchBar.Item = SearchItem
-export default SearchBar
+export default observer(SearchBar)

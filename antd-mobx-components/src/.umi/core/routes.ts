@@ -96,7 +96,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "example/searchBar.md",
-          "updatedTime": 1623913306268,
+          "updatedTime": 1623913377000,
           "slugs": [
             {
               "depth": 2,
@@ -107,6 +107,11 @@ export function getRoutes() {
               "depth": 3,
               "value": "默认配置",
               "heading": "默认配置"
+            },
+            {
+              "depth": 3,
+              "value": "个性化配置",
+              "heading": "个性化配置"
             }
           ],
           "title": "SearchBar"
