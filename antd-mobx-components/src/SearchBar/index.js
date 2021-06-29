@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { observer } from 'mobx-react-lite'
 import { Form, Button, Row, Col } from 'antd'
-import { SearchOutlined, EditOutlined, DownOutlined, UpOutlined } from '@ant-design/icons'
+import { SearchOutlined, EditOutlined } from '@ant-design/icons'
 
 import SearchStore from './store'
 
@@ -44,7 +44,6 @@ function SearchBar({ children, cache = true, store, extra = [], ...rest }) {
     form.setFieldsValue(SearchStore.params)
     return () => {
       if(!cache) {
-        console.log(123)
         SearchStore.setParams({})
       }
     }

@@ -96,7 +96,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "example/searchBar.md",
-          "updatedTime": 1623913377000,
+          "updatedTime": 1624259116000,
           "slugs": [
             {
               "depth": 2,
@@ -145,6 +145,29 @@ export function getRoutes() {
           "title": "Select"
         },
         "title": "Select"
+      },
+      {
+        "path": "/table",
+        "component": require('C:/Users/86157/Desktop/吕肥肥的github/npms/antd-mobx-components/example/table.md').default,
+        "exact": true,
+        "meta": {
+          "filePath": "example/table.md",
+          "updatedTime": 1624265914591,
+          "slugs": [
+            {
+              "depth": 2,
+              "value": "Table",
+              "heading": "table"
+            },
+            {
+              "depth": 3,
+              "value": "默认配置",
+              "heading": "默认配置"
+            }
+          ],
+          "title": "Table"
+        },
+        "title": "Table"
       }
     ],
     "title": "components",
