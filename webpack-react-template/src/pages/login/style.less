@@ -1,0 +1,43 @@
+@keyframes animate {
+  0% {
+    transform: rotateX(90deg) translateY(100%);
+  }
+  100% {
+    transform: rotateX(0) translateY(0);
+  }
+}
+.root {
+  height: 100%;
+  background: url('https://static-venus.shandiantech.com/skio/20210118/1610955414885/login.jpeg')
+    no-repeat center center;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 2000px;
+  .login_wrap {
+    .title {
+      color: #fff;
+      font-size: 22px;
+      text-align: center;
+    }
+    width: 400px;
+    height: 390px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px #888;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    animation: animate 1.5s;
+    z-index: 10;
+    .footer {
+      text-align: center;
+      color: #fff;
+    }
+  }
+}
