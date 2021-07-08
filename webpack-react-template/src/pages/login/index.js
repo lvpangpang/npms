@@ -26,7 +26,7 @@ function Index() {
         <Form form={form} onFinish={store.login}>
           <Item
             name="phone"
-            rules={[{ required: true, message: '请正确输入手机号!', pattern: /^[1][1-9]\d{9}$/ }]}
+            // rules={[{ required: true, message: '请正确输入手机号!', pattern: /^[1][1-9]\d{9}$/ }]}
           >
             <Input
               size="large"
@@ -37,7 +37,7 @@ function Index() {
           </Item>
           <Item
             name="verifyCode"
-            rules={[{ required: true, pattern: /^[0-9]*$/, message: '请正确输入验证码!' }]}
+            // rules={[{ required: true, pattern: /^[0-9]*$/, message: '请正确输入验证码!' }]}
           >
             <Input.Search
               size="large"

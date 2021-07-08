@@ -1,24 +1,16 @@
 import React, { Suspense } from 'react'
-import {
-  Router,
-  Switch,
-  Route
-} from 'react-router-dom'
-
-import history from './history'
+import { Switch, Route } from 'react-router-dom'
 
 const Home = React.lazy(() => import('../pages/index'))
-const Login = React.lazy(() => import('../pages/login'))
 
 export default function Index() {
   return (
-    <Router history={history}>
-      <Suspense fallback={<div>Loading...</div>}>
+    <>
+      <Suspense fallback={<></>}>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/login" component={Login} />
         </Switch>
       </Suspense>
-    </Router>
+    </>
   )
 }

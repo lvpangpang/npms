@@ -1,5 +1,5 @@
 import { makeAutoObservable, action } from 'mobx'
-import { history } from 'react-router-dom'
+import history from '../../router/history'
 // import { resetStore } from '@sd/components'
 // import { setToken } from '@/utils'
 import Api from './Api'
@@ -10,14 +10,15 @@ class Store {
   }
   loading = false
   login = async (values) => {
-    this.loading = true
-    const { token } = await Api.login(values).finally(
-      action(() => {
-        this.loading = false
-      })
-    )
-    // setToken(token)
-    history.push('/')
+    // this.loading = true
+    // const { token } = await Api.login(values).finally(
+    //   action(() => {
+    //     this.loading = false
+    //   })
+    // )
+    // // setToken(token)
+    // history.push('/')
+    window.location.href = '/'
   }
   /*
   短信验证码倒计时

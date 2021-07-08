@@ -1,15 +1,14 @@
-import { useAppInfo } from '@sd/admin'
 import { useState } from 'react'
 import { observer } from 'mobx-react-lite'
-import { logout } from '@/utils'
 import { DownOutlined } from '@ant-design/icons'
 import { Popover, Button } from 'antd'
-import styles from './style.less'
-import cls from 'classnames'
+import styles from './index.less'
+import DATA from './data'
+
+const { phone, roleNameDisplays, username } = DATA
 
 function User() {
   const [visible, setVisible] = useState(false)
-  const { username, roleName, phone, brands } = useAppInfo()
   return (
     <Popover
       visible={visible}
@@ -18,17 +17,21 @@ function User() {
       onVisibleChange={(v) => setVisible(v)}
       content={
         <div className={styles.info}>
-          <div>品牌：{brands.join('、')}</div>
           <div>手机号：{phone}</div>
-          <div>角色：{roleName}</div>
-          <Button type="primary" onClick={logout} block>
+          <div>
+            角色：
+            {roleNameDisplays.map((item) => {
+              return item + ' '
+            })}
+          </div>
+          <Button type="primary" block>
             退出
           </Button>
         </div>
       }
     >
-      <span className={styles.user}>
-        {username} <DownOutlined className={cls(styles.arrow, { [styles.up]: visible })} />
+      <span style={{ cursor: 'pointer' }}>
+        {username} <DownOutlined />
       </span>
     </Popover>
   )
