@@ -8,55 +8,38 @@ const data = {
   userTypeShow: '平台用户',
   menus: [
     {
-      id: 2,
-      title: 'AA管理',
-      path: '/#',
-      children: [
-        {
-          id: 8,
-          title: 'AA管理',
-          path: '/enterprise/user',
-          children: [
-            { id: 9, title: 'AA列表', path: '/customer/work-list', children: null },
-            { id: 116, title: 'AA查询', path: '/customer/work-search', children: null },
-            { id: 115, title: '我的AA', path: '/customer/my-work', children: null },
-          ],
-        },
-        {
-          id: 112,
-          title: 'AA配置',
-          path: '/#',
-          children: [
-            { id: 113, title: 'AA配置', path: '/customer/preset-reply', children: null },
-          ],
-        },
-      ],
-    },
-    {
       id: 4,
-      title: 'BB管理',
+      title: '用户中心',
       path: '/#',
       children: [
         {
           id: 27,
-          title: 'BB管理',
+          title: '用户管理',
           path: '/#',
-          children: [
-            { id: 28, title: 'BB列表', path: '/platform/operation', children: null },
-          ],
-        },
-        {
-          id: 29,
-          title: 'B管理',
-          path: '/#',
-          children: [
-            { id: 30, title: 'BBBB列表', path: '/platform/role', children: null },
-            { id: 31, title: 'CCCC列表', path: '/platform/user', children: null },
-          ],
+          children: [{ id: 28, title: '用户列表', path: '/user/list', children: null }],
         },
       ],
     },
-  ]
+    {
+      id: 2,
+      title: '订单中心',
+      path: '/#',
+      children: [
+        {
+          id: 8,
+          title: '订单管理',
+          path: '/#',
+          children: [{ id: 9, title: '订单列表', path: '/order/list', children: null }],
+        },
+        {
+          id: 112,
+          title: '历史订单',
+          path: '/#',
+          children: [{ id: 113, title: '历史订单', path: '/order/history', children: null }],
+        },
+      ],
+    },
+  ],
 }
 
 export default data

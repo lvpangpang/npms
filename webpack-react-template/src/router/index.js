@@ -1,14 +1,19 @@
 import React, { Suspense } from 'react'
 import { Switch, Route } from 'react-router-dom'
-
-const Home = React.lazy(() => import('../pages/index'))
+import RouterMap from './config'
 
 export default function Index() {
   return (
     <>
       <Suspense fallback={<></>}>
         <Switch>
-          <Route exact path="/" component={Home} />
+          {
+            RouterMap.map((item) => {
+              return <Route exact key={item.path} path={item.path}>
+                <item.component></item.component>
+              </Route>
+            })
+          }
         </Switch>
       </Suspense>
     </>
