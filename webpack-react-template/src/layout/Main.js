@@ -21,6 +21,9 @@ function App() {
   const [menu, setMenu] = useState([])
 
   useEffect(() => {
+    if (1) {
+      history.replace('/login')
+    }
     menus.forEach((item) => {
       item.children.forEach((item1) => {
         item1.children.forEach((item2) => {
