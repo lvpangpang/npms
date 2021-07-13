@@ -15,7 +15,7 @@ function handleParams(params) {
 function request(http) {
   http.interceptors.request.use(
     (userConfig) => {
-      const glocalConfig = http.prototype.glocalConfig
+      const glocalConfig = http.prototype.glocalConfig || {}
       const { headers } = glocalConfig
       const config = { ...userConfig, ...glocalConfig }
       config.headers = headers // 注意这里，直接赋值headers

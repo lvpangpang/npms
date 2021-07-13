@@ -1,10 +1,12 @@
 {
   "name": "js-common-library",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "js",
   "main": "es/index.js",
   "module": "es/index.js",
   "scripts": {
+    "start": "dumi dev",
+    "build:doc": "dumi build",
     "build": "father-build build"
   },
   "files": [
@@ -13,7 +15,8 @@
   "author": "lvpangpang",
   "license": "ISC",
   "devDependencies": {
-    "father-build": "^1.19.6"
+    "dumi": "1.1.23",
+    "father-build": "1.19.6"
   },
   "dependencies": {
     "axios": "0.21.1"

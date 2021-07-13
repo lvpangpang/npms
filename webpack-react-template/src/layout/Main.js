@@ -14,7 +14,7 @@ const { SubMenu, Item } = Menu
 const BreadcrumbItem = Breadcrumb.Item
 const { menus } = DATA
 
-function App(props) {
+function App() {
   const [path, setPath] = useState([])
   const [one, setOne] = useState()
   const [two, setTwo] = useState()
@@ -25,7 +25,7 @@ function App(props) {
     menus.forEach((item1) => {
       item1.children.forEach((item2) => {
         item2.children.forEach((item3) => {
-          if (item3.path === pathname) {
+          if (pathname.includes(item3.path)) {
             setPath([item1.title, item2.title, item3.title])
             setMenu(item1?.children)
             setOne(item1.id)
@@ -41,7 +41,8 @@ function App(props) {
     pathChange(window.location.pathname)
     // 监听路由变化
     history.listen((location) => {
-      pathChange(location.pathname)
+      const { pathname } = location
+      pathChange(pathname)
     })
   }, [])
 

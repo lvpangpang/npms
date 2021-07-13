@@ -152,7 +152,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "example/table.md",
-          "updatedTime": 1624265914591,
+          "updatedTime": 1624953006000,
           "slugs": [
             {
               "depth": 2,

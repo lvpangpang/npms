@@ -4,7 +4,10 @@ import Login from '../pages/login'
 
 import { http } from 'js-common-library'
 
-console.log(http)
+http({
+  url: 'https://mars-boss.lingxichuxing.com/v1/boss/es/orders'
+})
+
 function Index() {
   const { pathname } = window.location
   return pathname === '/login' ? (

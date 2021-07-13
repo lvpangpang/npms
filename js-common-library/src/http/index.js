@@ -4,7 +4,7 @@ import response from './response'
 
 const instance = axios.create()
 
-instance.setConfig = (glocalConfig={}) => {
+instance.setConfig = (glocalConfig = {}) => {
   instance.prototype.glocalConfig = glocalConfig
 }
 

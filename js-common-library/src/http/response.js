@@ -13,7 +13,7 @@ function response(http) {
       return result
     },
     (err) => {
-      const { error } = err.config
+      const { error } = err?.config
       if (isFun(error)) {
         error(err)
       } else {
