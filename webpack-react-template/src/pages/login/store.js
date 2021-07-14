@@ -17,7 +17,8 @@ class Store {
     //   })
     // )
     // // setToken(token)
-    // history.push('/')
+    // history.replace('/')
+    localStorage.setItem('token', 123)
     window.location.href = '/'
   }
   /*

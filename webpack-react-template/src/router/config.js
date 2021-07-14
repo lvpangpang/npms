@@ -11,5 +11,4 @@ const RouterMap = [
   { path: '/order/list', component: OrderList },
   { path: '/order/history', component: OrderHitory },
 ]
-
 export default RouterMap

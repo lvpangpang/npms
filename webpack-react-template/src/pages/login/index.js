@@ -22,7 +22,7 @@ function Index() {
   return (
     <div className={styles.root}>
       <div className={styles.login_wrap}>
-        <div className={styles.title}>闪电出行</div>
+        <div className={styles.title}>XX系统</div>
         <Form form={form} onFinish={store.login}>
           <Item
             name="phone"

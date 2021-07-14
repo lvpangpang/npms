@@ -1,5 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { BrowserRouter } from 'react-router-dom'
 import App from './layout'
 
-ReactDOM.render(<App />, document.querySelector('#root'))
+function Index() {
+  return <BrowserRouter><App></App></BrowserRouter>
+}
+
+ReactDOM.render(<Index />, document.querySelector('#root'))

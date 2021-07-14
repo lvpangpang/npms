@@ -1,6 +1,5 @@
 import React from 'react'
-import Main from './Main'
-import Login from '../pages/login'
+import RouterView from '../router'
 
 import { http } from 'js-common-library'
 
@@ -9,12 +8,7 @@ http({
 })
 
 function Index() {
-  const { pathname } = window.location
-  return pathname === '/login' ? (
-    <Login></Login>
-  ) : (
-    <Main></Main>
-  )
+  return <RouterView></RouterView>
 }
 
 export default Index
