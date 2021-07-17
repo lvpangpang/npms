@@ -37,6 +37,7 @@ module.exports = {
   plugins: pluginsConfig,
   // 开发服务器
   devServer: adminConf.devServer || {
+    stats: "errors-only",
     historyApiFallback: true,
     host: ip.address(),
     contentBase: [path.resolve(`${cwd}/dist`), path.resolve(`${cwd}/public`)],

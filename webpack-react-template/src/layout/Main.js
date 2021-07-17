@@ -21,10 +21,12 @@ function App({ children }) {
   const [menu, setMenu] = useState([])
 
   const pathChange = (pathname) => {
+    let isMatch = false
     menus.forEach((item1) => {
       item1.children.forEach((item2) => {
         item2.children.forEach((item3) => {
           if (pathname.includes(item3.path)) {
+            isMatch = true
             setPath([item1.title, item2.title, item3.title])
             setMenu(item1?.children)
             setOne(item1.id)
@@ -34,12 +36,20 @@ function App({ children }) {
         })
       })
     })
+    if (!isMatch) {
+      setPath([])
+      setMenu([])
+      setOne(null)
+      setTwo(null)
+      setThree(null)
+    }
   }
 
   useEffect(() => {
     pathChange(window.location.pathname)
     // 监听路由变化
     history.listen((location) => {
+      console.log(location)
       const { pathname } = location
       pathChange(pathname)
     })

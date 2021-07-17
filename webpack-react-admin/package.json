@@ -1,6 +1,6 @@
 {
   "name": "webpack-react-admin",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "快速搭建前端React项目，减少webpack配置学习成本",
   "main": "index.js",
   "bin": {
@@ -48,7 +48,8 @@
     "webpack": "4.42.1",
     "webpack-cli": "3.3.11",
     "webpack-dev-server": "3.11.0",
-    "webpack-merge": "4.2.2"
+    "webpack-merge": "4.2.2",
+    "webpackbar": "5.0.0-3"
   },
   "devDependencies": {
     "antd-mobile": "2.3.4",
