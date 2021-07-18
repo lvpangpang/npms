@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
 import RouterView from '../router'
 
 import { http } from 'js-common-library'
@@ -8,7 +9,7 @@ http({
 })
 
 function Index() {
-  return <RouterView></RouterView>
+  return <BrowserRouter><RouterView></RouterView></BrowserRouter>
 }
 
 export default Index

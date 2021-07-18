@@ -17,9 +17,9 @@ class Store {
     //   })
     // )
     // // setToken(token)
-    // history.replace('/')
     localStorage.setItem('token', 123)
     window.location.href = '/'
+    // history.replace('/')
   }
   /*
   短信验证码倒计时
