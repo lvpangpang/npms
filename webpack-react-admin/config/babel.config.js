@@ -1,30 +1,33 @@
 const adminConf = require("../utils/index.js")();
 
+console.log(adminConf.babelPlugins)
 const babelConfig = {
   presets: [
     [
-      "@babel/preset-react",
+      '@babel/preset-react',
       {
-        runtime: "automatic",
+        runtime: 'automatic',
       },
     ],
     [
-      "@babel/preset-env",
+      '@babel/preset-env',
       {
         modules: false,
         targets: {
-          browsers: ["> 1%", "last 2 versions"],
+          browsers: ['> 1%', 'last 2 versions'],
         },
-        useBuiltIns: "usage",
+        useBuiltIns: 'usage',
         corejs: 3,
       },
     ],
-    "@babel/typescript",
+    '@babel/typescript',
   ],
   plugins: [
-    ["@babel/plugin-proposal-decorators", { legacy: true }],
-    ["@babel/plugin-proposal-class-properties", { loose: false }],
+    ['@babel/plugin-proposal-decorators', { legacy: true }],
+    ['@babel/plugin-proposal-class-properties', { loose: false }],
+    ['import', { libraryName: 'antd', style: 'css' }, 'antd'],
+    ['import', { libraryName: 'antd-mobile', style: 'css' }, 'antd-mobile'],
   ].concat(adminConf.babelPlugins || []),
-};
+}
 
 module.exports = babelConfig;

@@ -10,5 +10,8 @@
     "singleQuote": true,
     "tabWidth": 2,
     "printWidth": 100
+  },
+  "dependencies": {
+    "antd": "^4.16.11"
   }
 }
