@@ -1,29 +1,30 @@
-### webpack-react-admin
+# webpack-react-admin
 快速搭建前端React项目，减少webpack配置学习成本  
 1. 支持ts, tsx, js,jsx, less,css等文件类型的编译打包
 2. 内置corejs3
 3. 支持装饰器
 4. 自动使用空闲端口启动服务
 5. 支持css模块化
-#### Install
+6. 对antd，antd-mobile库自动按需打包
+## 1.Install
 ```bash
 npm install webpack-react-admin --D
 ```
 
-#### 命令
+## 2.命令
 ```bash
 //package.json
 {
   "script": {
     //开发
-    "start": "webpack-react-admin",
+    "start": "webpack-react-admin env=aa", // 这是设置环境为aa，然后在业务代码里面就可以通过__ENV__获取到当前环境的值
     //打包
     "build": "webpack-react-admin build"
   }
 }
 
 ```
-#### 目录结构
+## 3.目录结构
 ```
 .
 +-- public
@@ -33,10 +34,10 @@ npm install webpack-react-admin --D
 |   +-- index.js(入口文件，可以配置)
 ```
 
-#### 配置文件
+## 4.配置文件
 允许自定义添加配置文件修改webpack配置,需要在根目录添加admin.config.js文件
 
-#### 配置项说明
+## 5.配置项说明
 属性|说明|备注
 ---|---|---
 entry|入口配置|参考[webpack entry](https://www.webpackjs.com/configuration/entry-context/#entry)

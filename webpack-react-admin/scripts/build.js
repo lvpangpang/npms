@@ -1,9 +1,10 @@
 const webpack = require('webpack')
 const webpackConfig = require('../config/webpack.config.js')
+const { success, error } = require('../utils/info')
 
 webpack(webpackConfig, (err, stats) => {
   if (err || stats.hasErrors()) {
-    console.log(err);
+    error(err);
     return
   }
   process.stdout.write(stats.toString({
@@ -18,5 +19,5 @@ webpack(webpackConfig, (err, stats) => {
     chunkModules: false
   }) + '\r\n')
 
-  console.log('打包成功!')
+  success('打包成功!')
 })

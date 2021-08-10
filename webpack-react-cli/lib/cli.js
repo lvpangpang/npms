@@ -34,11 +34,5 @@ module.exports = async function (config) {
     await exec('npm i -g yarn')
   }
 
-  console.log('开始安装开发依赖...')
-  spinner.start()
-  await exec(`cd ${name} && yarn add webpack-react-admin --dev`)
-  spinner.stop()
-  console.log(chalk.green('✔ 开发依赖安装成功'))
-
   console.log(chalk.green(`cd ${name} && yarn && npm start`))
 }

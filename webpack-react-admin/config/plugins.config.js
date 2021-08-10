@@ -7,20 +7,21 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
 const WebpackBar = require('webpackbar')
 const isPro = process.argv[2] === "build";
+const env = process.argv[3] && process.argv[3].split('=')[1]
 
 const pluginsConfig = [
   new WebpackBar(),
   !isPro
     ? new ESLintPlugin({
-        formatter: require("eslint-friendly-formatter"),
-        overrideConfigFile: path.join(__dirname, "./eslint.config.js"),
+        formatter: require('eslint-friendly-formatter'),
+        overrideConfigFile: path.join(__dirname, './eslint.config.js'),
         fix: false,
         useEslintrc: false,
-        extensions: ["js", "jsx", "tsx"],
+        extensions: ['js', 'jsx', 'tsx'],
       })
     : () => {},
   new webpack.DefinePlugin({
-    NODE_ENV: isPro ? "production" : "development",
+    __ENV__: JSON.stringify(env)
   }),
   isPro ? new CleanWebpackPlugin() : function () {},
   new HtmlWebpackPlugin({
@@ -36,6 +37,6 @@ const pluginsConfig = [
         ],
       })
     : function () {},
-];
+]
 
 module.exports = pluginsConfig;

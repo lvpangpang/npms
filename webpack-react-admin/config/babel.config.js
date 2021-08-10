@@ -1,6 +1,5 @@
 const adminConf = require("../utils/index.js")();
 
-console.log(adminConf.babelPlugins)
 const babelConfig = {
   presets: [
     [

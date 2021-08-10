@@ -2,7 +2,6 @@ const path = require("path");
 const ip = require("ip");
 const cwd = process.cwd();
 const isPro = process.argv[2] === "build";
-
 const adminConf = require("../utils/index.js")();
 const splitchunksConfig = require("./splitchunks.config.js");
 const parseConfig = require("./parse.config.js");
