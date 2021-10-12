@@ -73,12 +73,35 @@ export function getRoutes() {
         "title": "js-common-library"
       },
       {
+        "path": "/data-type",
+        "component": require('C:/Users/86157/Desktop/吕肥肥的github/npms/js-common-library/example/data-type.md').default,
+        "exact": true,
+        "meta": {
+          "filePath": "example/data-type.md",
+          "updatedTime": 1634032652683,
+          "slugs": [
+            {
+              "depth": 1,
+              "value": "Data-Type",
+              "heading": "data-type"
+            },
+            {
+              "depth": 2,
+              "value": "用例",
+              "heading": "用例"
+            }
+          ],
+          "title": "Data-Type"
+        },
+        "title": "Data-Type"
+      },
+      {
         "path": "/http",
         "component": require('C:/Users/86157/Desktop/吕肥肥的github/npms/js-common-library/example/http.md').default,
         "exact": true,
         "meta": {
           "filePath": "example/http.md",
-          "updatedTime": 1626159265555,
+          "updatedTime": 1626167308000,
           "slugs": [
             {
               "depth": 1,

@@ -3717,10 +3717,10 @@ dumi-theme-default@1.1.6:
     prismjs "^1.21.0"
     rc-tabs "^11.7.1"
 
-dumi@^1.1.23:
+dumi@1.1.23:
   version "1.1.23"
-  resolved "https://registry.yarnpkg.com/dumi/-/dumi-1.1.23.tgz#fb329bc94ca335d051e0b68063b77c3873ca0865"
-  integrity sha512-SEHSC6IAL+7wz1uLWpayCZi+euivaNx14HQ4OjMKgVcZGyab8NOs7RbSq9aajAwYoZJrb0eKA8dB4oh9qAgVfw==
+  resolved "http://npm.shandiantech.com/dumi/-/dumi-1.1.23.tgz#fb329bc94ca335d051e0b68063b77c3873ca0865"
+  integrity sha1-+zKbyUyjNdBR4LaAY7d8OHPKCGU=
   dependencies:
     "@umijs/preset-dumi" "1.1.23"
     umi "^3.0.0"
@@ -4086,10 +4086,10 @@ fastparse@^1.1.2:
   resolved "https://registry.yarnpkg.com/fastparse/-/fastparse-1.1.2.tgz#91728c5a5942eced8531283c79441ee4122c35a9"
   integrity sha512-483XLLxTVIwWK3QTrMGRqUfUpoOs/0hbQrl2oz4J0pAcm3A3bu84wxTFqGqkJzewCLdME38xJLJAxBABfQT8sQ==
 
-father-build@^1.19.6:
+father-build@1.19.6:
   version "1.19.6"
-  resolved "https://registry.yarnpkg.com/father-build/-/father-build-1.19.6.tgz#d84b5f8d17e719ffab6b378e8100657fea22a9d3"
-  integrity sha512-InxKSw8hQi1BAiKUyK/bgDuY3O8CoRqN2k4u3Aa16sDrk05iCHwyLSk/aVN/MkuS4fEPPwECwgisVDhUpXxJvA==
+  resolved "http://npm.shandiantech.com/father-build/-/father-build-1.19.6.tgz#d84b5f8d17e719ffab6b378e8100657fea22a9d3"
+  integrity sha1-2EtfjRfnGf+razeOgQBlf+oiqdM=
   dependencies:
     "@babel/core" "7.12.3"
     "@babel/plugin-proposal-class-properties" "7.12.1"

@@ -10,6 +10,11 @@
           }
         },
         {
+          "path": "/data-type",
+          "title": "Data-Type",
+          "meta": {}
+        },
+        {
           "path": "/http",
           "title": "Http",
           "meta": {}
