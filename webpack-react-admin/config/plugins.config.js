@@ -1,13 +1,14 @@
-const path = require('path');
-const cwd = process.cwd();
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CopyPlugin = require("copy-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const ESLintPlugin = require("eslint-webpack-plugin");
+const path = require('path')
+const cwd = process.cwd()
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const ESLintPlugin = require('eslint-webpack-plugin')
 const WebpackBar = require('webpackbar')
-const isPro = process.argv[2] === "build";
+const isPro = process.argv[2] === 'build'
 const env = process.argv[3] && process.argv[3].split('=')[1]
+const adminConf = require('../utils/index.js')()
 
 const pluginsConfig = [
   new WebpackBar(),
@@ -21,7 +22,7 @@ const pluginsConfig = [
       })
     : () => {},
   new webpack.DefinePlugin({
-    __ENV__: JSON.stringify(env)
+    __ENV__: JSON.stringify(env),
   }),
   isPro ? new CleanWebpackPlugin() : function () {},
   new HtmlWebpackPlugin({
@@ -37,6 +38,6 @@ const pluginsConfig = [
         ],
       })
     : function () {},
-]
+].concat(adminConf.plugins || [])
 
-module.exports = pluginsConfig;
+module.exports = pluginsConfig

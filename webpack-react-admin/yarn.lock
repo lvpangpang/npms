@@ -1365,7 +1365,7 @@ antd-mobile@2.3.4:
     rmc-tabs "~1.2.0"
     rmc-tooltip "~1.0.0"
 
-antd@^4.16.11:
+antd@4.16.11:
   version "4.16.11"
   resolved "http://npm.shandiantech.com/antd/-/antd-4.16.11.tgz#924116b0de7370f914e9de6c8c5a4bf019b3d668"
   integrity sha1-kkEWsN5zcPkU6d5sjFpL8Bmz1mg=
