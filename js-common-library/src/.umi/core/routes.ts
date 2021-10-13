@@ -63,7 +63,7 @@ export function getRoutes() {
           "componentName": "js-common-library",
           "slugs": [
             {
-              "depth": 2,
+              "depth": 1,
               "value": "js-common-library",
               "heading": "js-common-library"
             }
@@ -78,7 +78,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "example/data-type.md",
-          "updatedTime": 1634032652683,
+          "updatedTime": 1634037319000,
           "slugs": [
             {
               "depth": 1,
@@ -110,8 +110,8 @@ export function getRoutes() {
             },
             {
               "depth": 2,
-              "value": "默认配置",
-              "heading": "默认配置"
+              "value": "用例",
+              "heading": "用例"
             }
           ],
           "title": "Http"

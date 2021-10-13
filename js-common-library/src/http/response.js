@@ -3,7 +3,6 @@ import { isFun } from '../data-type'
 function response(http) {
   http.interceptors.response.use(
     (res) => {
-      console.log(res)
       const { data, config } = res
       const { transformResult } = config
       let result = data
@@ -13,11 +12,13 @@ function response(http) {
       return result
     },
     (err) => {
-      const { error } = err?.config
+      const { config } = err
+      const { error } = config || {}
+      const message = err.message
       if (isFun(error)) {
         error(err)
       } else {
-        console.error(err)
+        console.error(message)
       }
       return Promise.reject(err)
     }
