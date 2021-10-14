@@ -59,7 +59,7 @@ export function getRoutes() {
           "locale": "en-US",
           "order": null,
           "filePath": "README.md",
-          "updatedTime": 1626094521000,
+          "updatedTime": 1634126048000,
           "componentName": "js-common-library",
           "slugs": [
             {
@@ -101,7 +101,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "example/http.md",
-          "updatedTime": 1626167308000,
+          "updatedTime": 1634126048000,
           "slugs": [
             {
               "depth": 1,

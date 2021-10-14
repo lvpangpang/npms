@@ -14,26 +14,26 @@ function handleParams(params) {
 
 function request(http) {
   http.interceptors.request.use(
-    (userConfig) => {
+    (config) => {
       const glocalConfig = http.prototype.glocalConfig || {}
       const { headers } = glocalConfig
-      const config = { ...userConfig, ...glocalConfig }
-      config.headers = headers // 注意这里，直接赋值headers
-      const { method, transformRequest } = config
+      const resultConfig = { ...glocalConfig, ...config }
+      resultConfig.headers = headers // 注意这里，直接赋值headers
+      const { method, transformRequest } = resultConfig
 
       if (method === 'get') {
-        config.paramsSerializer = function (params) {
+        resultConfig.paramsSerializer = function (params) {
           return handleParams(params)
         }
       }
 
       if (isFun(transformRequest)) {
-        config.transformRequest = function (data) {
+        resultConfig.transformRequest = function (data) {
           return transformRequest(data)
         }
       }
 
-      return config
+      return resultConfig
     },
     (error) => {
       return Promise.reject(error)
