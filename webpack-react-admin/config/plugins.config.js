@@ -6,13 +6,14 @@ const CopyPlugin = require('copy-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
 const WebpackBar = require('webpackbar')
+const adminConf = require('../utils/index.js')()
 const isPro = process.argv[2] === 'build'
 const env = process.argv[3] && process.argv[3].split('=')[1]
 const adminConf = require('../utils/index.js')()
 
 const pluginsConfig = [
   new WebpackBar(),
-  !isPro
+  adminConf.useEslint
     ? new ESLintPlugin({
         formatter: require('eslint-friendly-formatter'),
         overrideConfigFile: path.join(__dirname, './eslint.config.js'),
