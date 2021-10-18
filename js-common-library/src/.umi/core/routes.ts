@@ -101,7 +101,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "example/http.md",
-          "updatedTime": 1634126048000,
+          "updatedTime": 1634195288000,
           "slugs": [
             {
               "depth": 1,
@@ -117,6 +117,52 @@ export function getRoutes() {
           "title": "Http"
         },
         "title": "Http"
+      },
+      {
+        "path": "/object",
+        "component": require('C:/Users/86157/Desktop/吕肥肥的github/npms/js-common-library/example/object.md').default,
+        "exact": true,
+        "meta": {
+          "filePath": "example/object.md",
+          "updatedTime": 1634197546793,
+          "slugs": [
+            {
+              "depth": 1,
+              "value": "Object",
+              "heading": "object"
+            },
+            {
+              "depth": 2,
+              "value": "用例",
+              "heading": "用例"
+            }
+          ],
+          "title": "Object"
+        },
+        "title": "Object"
+      },
+      {
+        "path": "/storage",
+        "component": require('C:/Users/86157/Desktop/吕肥肥的github/npms/js-common-library/example/storage.md').default,
+        "exact": true,
+        "meta": {
+          "filePath": "example/storage.md",
+          "updatedTime": 1634526900599,
+          "slugs": [
+            {
+              "depth": 1,
+              "value": "Storage",
+              "heading": "storage"
+            },
+            {
+              "depth": 2,
+              "value": "用例",
+              "heading": "用例"
+            }
+          ],
+          "title": "Storage"
+        },
+        "title": "Storage"
       }
     ],
     "title": "js-common-library",

@@ -18,6 +18,16 @@
           "path": "/http",
           "title": "Http",
           "meta": {}
+        },
+        {
+          "path": "/object",
+          "title": "Object",
+          "meta": {}
+        },
+        {
+          "path": "/storage",
+          "title": "Storage",
+          "meta": {}
         }
       ]
     }
