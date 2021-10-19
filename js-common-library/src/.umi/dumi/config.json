@@ -20,6 +20,11 @@
           "meta": {}
         },
         {
+          "path": "/js-bridge",
+          "title": "Js-bridge",
+          "meta": {}
+        },
+        {
           "path": "/object",
           "title": "Object",
           "meta": {}

@@ -119,12 +119,35 @@ export function getRoutes() {
         "title": "Http"
       },
       {
+        "path": "/js-bridge",
+        "component": require('C:/Users/86157/Desktop/吕肥肥的github/npms/js-common-library/example/js-bridge.md').default,
+        "exact": true,
+        "meta": {
+          "filePath": "example/js-bridge.md",
+          "updatedTime": 1634624488858,
+          "slugs": [
+            {
+              "depth": 1,
+              "value": "Js-bridge",
+              "heading": "js-bridge"
+            },
+            {
+              "depth": 2,
+              "value": "用例",
+              "heading": "用例"
+            }
+          ],
+          "title": "Js-bridge"
+        },
+        "title": "Js-bridge"
+      },
+      {
         "path": "/object",
         "component": require('C:/Users/86157/Desktop/吕肥肥的github/npms/js-common-library/example/object.md').default,
         "exact": true,
         "meta": {
           "filePath": "example/object.md",
-          "updatedTime": 1634197546793,
+          "updatedTime": 1634527177000,
           "slugs": [
             {
               "depth": 1,
@@ -147,7 +170,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "example/storage.md",
-          "updatedTime": 1634526900599,
+          "updatedTime": 1634527177000,
           "slugs": [
             {
               "depth": 1,
