@@ -124,7 +124,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "example/js-bridge.md",
-          "updatedTime": 1634624488858,
+          "updatedTime": 1634624692000,
           "slugs": [
             {
               "depth": 1,
@@ -186,6 +186,29 @@ export function getRoutes() {
           "title": "Storage"
         },
         "title": "Storage"
+      },
+      {
+        "path": "/url",
+        "component": require('C:/Users/86157/Desktop/吕肥肥的github/npms/js-common-library/example/url.md').default,
+        "exact": true,
+        "meta": {
+          "filePath": "example/url.md",
+          "updatedTime": 1634870743993,
+          "slugs": [
+            {
+              "depth": 1,
+              "value": "Url",
+              "heading": "url"
+            },
+            {
+              "depth": 2,
+              "value": "用例",
+              "heading": "用例"
+            }
+          ],
+          "title": "Url"
+        },
+        "title": "Url"
       }
     ],
     "title": "js-common-library",

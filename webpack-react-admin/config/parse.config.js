@@ -31,7 +31,7 @@ const parseConfig = {
       exclude: /node_modules/,
       use: [
         "style-loader",
-        `css-loader${adminConf.isCssModule ? "?modules" : ""}`,
+        "css-loader",
         postCssLoader
       ],
     },

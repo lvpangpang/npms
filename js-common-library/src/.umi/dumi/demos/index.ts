@@ -21,7 +21,7 @@ export default {
 
   return _react["default"].createElement(_default);
 },
-    previewerProps: {"sources":{"_":{"jsx":"import React from 'react'\nimport { isObj, isEmptyObj, isNum, isStr, isBool, isArr, isFun, isPromise } from 'js-common-library'\n\nexport default () => {\n  return <div>\n    <p>{isObj({ name: 'btc' }) ? '验证成功' : '验证失败'}</p>\n    <p>{isEmptyObj({ name: 'btc' }) ? '验证成功' : '验证失败'}</p>\n    <p>{isStr('btc') ? '验证成功' : '验证失败'}</p>\n    <p>{isBool(true) ? '验证成功' : '验证失败'}</p>\n    <p>{isArr([1, 2, 3]) ? '验证成功' : '验证失败'}</p>\n    <p>{isFun(function () {}) ? '验证成功' : '验证失败'}</p>\n    <p>{isPromise(Promise.resolve()) ? '验证成功' : '验证失败'}</p>\n  </div>\n}"}},"dependencies":{"react":{"version":"16.14.0"},"js-common-library":{"version":"1.0.8"}},"identifier":"data-type-demo"},
+    previewerProps: {"sources":{"_":{"jsx":"import React from 'react'\nimport { isObj, isEmptyObj, isNum, isStr, isBool, isArr, isFun, isPromise } from 'js-common-library'\n\nexport default () => {\n  return <div>\n    <p>{isObj({ name: 'btc' }) ? '验证成功' : '验证失败'}</p>\n    <p>{isEmptyObj({ name: 'btc' }) ? '验证成功' : '验证失败'}</p>\n    <p>{isStr('btc') ? '验证成功' : '验证失败'}</p>\n    <p>{isBool(true) ? '验证成功' : '验证失败'}</p>\n    <p>{isArr([1, 2, 3]) ? '验证成功' : '验证失败'}</p>\n    <p>{isFun(function () {}) ? '验证成功' : '验证失败'}</p>\n    <p>{isPromise(Promise.resolve()) ? '验证成功' : '验证失败'}</p>\n  </div>\n}"}},"dependencies":{"react":{"version":"16.14.0"},"js-common-library":{"version":"1.0.9"}},"identifier":"data-type-demo"},
   },
   'http-demo': {
     component: function DumiDemo() {
@@ -93,7 +93,7 @@ export default {
 
   return _react["default"].createElement(_default);
 },
-    previewerProps: {"sources":{"_":{"jsx":"import React, { useEffect } from 'react'\nimport { http } from 'js-common-library'\nhttp.defaults.timeout = 300;\nhttp.setConfig({\n  baseURL: 'https://qa01web-gateway.lingxichuxing.com',\n  headers: {\n    contextId: 'pms',\n    'skio-token':\n      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJib3NzX2F1dGhfaXNzdWVyIiwiY29udGV4dElkIjoicG1zIiwiZXhwIjoxNjM0MTM4ODQxLCJ1c2VySWQiOjY1fQ.upPeT0OknNQe2L1Hi136lHwSfgFtMSRwWQMhPKlY5',\n  },\n  transformResult(result) {\n    const { code, data, msg } = result || {}\n    // 正常业务数据\n    if (code === 200) {\n      return data\n    }\n    // 非正常业务情况提示错误msg\n    // alert(msg)\n    // 暴露出错误信息，有些特殊业务场景需要判断不同的错误码做对应的处理\n    return Promise.reject(result)\n  },\n  error(e) {\n    console.log(e.message)\n    console.log('错误：' + e)\n  },\n})\n\nexport default () => {\n  useEffect(() => {\n    http\n      .get('/saas/v1/basic/dataTypes', {\n        // baseURL: 'https://www.baidu.com',\n        params: {\n          name: '吕肥肥',\n          age: 18,\n        },\n      })\n      .then((data) => {\n        console.log('业务方接受到的数据：', data)\n      })\n      .catch((err) => {\n        console.log('业务方接受到的错误', err)\n      })\n    http\n      .post(\n        '/saas/v1/basic/dataTypes',\n        {\n          name: '吕肥肥',\n          age: 18,\n        },\n        {\n          exId: '123',\n        }\n      )\n      .then((data) => {\n        console.log('业务方接受到的数据：', data)\n      })\n      .catch((err) => {\n        console.log('业务方接受到的错误', err)\n      })\n  }, [])\n  return (\n    <div>\n      <p>http配置实例</p>\n      <p>请查看源代码以及控制台输出</p>\n    </div>\n  )\n}"}},"dependencies":{"react":{"version":"16.14.0"},"js-common-library":{"version":"1.0.8"}},"identifier":"http-demo"},
+    previewerProps: {"sources":{"_":{"jsx":"import React, { useEffect } from 'react'\nimport { http } from 'js-common-library'\nhttp.defaults.timeout = 300;\nhttp.setConfig({\n  baseURL: 'https://qa01web-gateway.lingxichuxing.com',\n  headers: {\n    contextId: 'pms',\n    'skio-token':\n      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJib3NzX2F1dGhfaXNzdWVyIiwiY29udGV4dElkIjoicG1zIiwiZXhwIjoxNjM0MTM4ODQxLCJ1c2VySWQiOjY1fQ.upPeT0OknNQe2L1Hi136lHwSfgFtMSRwWQMhPKlY5',\n  },\n  transformResult(result) {\n    const { code, data, msg } = result || {}\n    // 正常业务数据\n    if (code === 200) {\n      return data\n    }\n    // 非正常业务情况提示错误msg\n    // alert(msg)\n    // 暴露出错误信息，有些特殊业务场景需要判断不同的错误码做对应的处理\n    return Promise.reject(result)\n  },\n  error(e) {\n    console.log(e.message)\n    console.log('错误：' + e)\n  },\n})\n\nexport default () => {\n  useEffect(() => {\n    http\n      .get('/saas/v1/basic/dataTypes', {\n        // baseURL: 'https://www.baidu.com',\n        params: {\n          name: '吕肥肥',\n          age: 18,\n        },\n      })\n      .then((data) => {\n        console.log('业务方接受到的数据：', data)\n      })\n      .catch((err) => {\n        console.log('业务方接受到的错误', err)\n      })\n    http\n      .post(\n        '/saas/v1/basic/dataTypes',\n        {\n          name: '吕肥肥',\n          age: 18,\n        },\n        {\n          exId: '123',\n        }\n      )\n      .then((data) => {\n        console.log('业务方接受到的数据：', data)\n      })\n      .catch((err) => {\n        console.log('业务方接受到的错误', err)\n      })\n  }, [])\n  return (\n    <div>\n      <p>http配置实例</p>\n      <p>请查看源代码以及控制台输出</p>\n    </div>\n  )\n}"}},"dependencies":{"react":{"version":"16.14.0"},"js-common-library":{"version":"1.0.9"}},"identifier":"http-demo"},
   },
   'js-bridge-demo': {
     component: function DumiDemo() {
@@ -109,7 +109,7 @@ export default {
 
   return _react["default"].createElement(_default);
 },
-    previewerProps: {"sources":{"_":{"jsx":"import React from 'react'\nimport { jsBridge } from 'js-common-library'\n\nexport default () => {\n  return (\n    <div>\n      <p>jsBridge对象输入详见控制台</p>\n      <p>{console.log(jsBridge)}</p>\n    </div>\n  )\n}"}},"dependencies":{"react":{"version":"16.14.0"},"js-common-library":{"version":"1.0.8"}},"identifier":"js-bridge-demo"},
+    previewerProps: {"sources":{"_":{"jsx":"import React from 'react'\nimport { jsBridge } from 'js-common-library'\n\nexport default () => {\n  return (\n    <div>\n      <p>jsBridge对象输入详见控制台</p>\n      <p>{console.log(jsBridge)}</p>\n    </div>\n  )\n}"}},"dependencies":{"react":{"version":"16.14.0"},"js-common-library":{"version":"1.0.9"}},"identifier":"js-bridge-demo"},
   },
   'object-demo': {
     component: function DumiDemo() {
@@ -131,7 +131,7 @@ export default {
 
   return _react["default"].createElement(_default);
 },
-    previewerProps: {"sources":{"_":{"jsx":"import React from 'react'\nimport { omitValues } from 'js-common-library'\n\nexport default () => {\n  console.log(\n    omitValues({\n      name: '吕肥肥',\n      age: undefined,\n      sex: '',\n      you: null,\n    })\n  )\n  return <div>object</div>\n}"}},"dependencies":{"react":{"version":"16.14.0"},"js-common-library":{"version":"1.0.8"}},"identifier":"object-demo"},
+    previewerProps: {"sources":{"_":{"jsx":"import React from 'react'\nimport { omitValues } from 'js-common-library'\n\nexport default () => {\n  console.log(\n    omitValues({\n      name: '吕肥肥',\n      age: undefined,\n      sex: '',\n      you: null,\n    })\n  )\n  return <div>object</div>\n}"}},"dependencies":{"react":{"version":"16.14.0"},"js-common-library":{"version":"1.0.9"}},"identifier":"object-demo"},
   },
   'storage-demo': {
     component: function DumiDemo() {
@@ -151,6 +151,22 @@ export default {
 
   return _react["default"].createElement(_default);
 },
-    previewerProps: {"sources":{"_":{"jsx":"import React from 'react'\nimport { setStorage, getStorage } from 'js-common-library'\n\nexport default () => {\n  return (\n    <div>\n      输出见控制台\n      <p>{setStorage('name', '吕肥肥')}</p>\n      <p>{setStorage('info', { name: '吕肥肥', age: 8, sex: '男' })}</p>\n      <p>{setStorage('arr', [1,2,3])}</p>\n      <p>{console.log(getStorage('name'))}</p>\n      <p>{console.log(getStorage('info'))}</p>\n      <p>{console.log(getStorage('arr'))}</p>\n    </div>\n  )\n}"}},"dependencies":{"react":{"version":"16.14.0"},"js-common-library":{"version":"1.0.8"}},"identifier":"storage-demo"},
+    previewerProps: {"sources":{"_":{"jsx":"import React from 'react'\nimport { setStorage, getStorage } from 'js-common-library'\n\nexport default () => {\n  return (\n    <div>\n      输出见控制台\n      <p>{setStorage('name', '吕肥肥')}</p>\n      <p>{setStorage('info', { name: '吕肥肥', age: 8, sex: '男' })}</p>\n      <p>{setStorage('arr', [1,2,3])}</p>\n      <p>{console.log(getStorage('name'))}</p>\n      <p>{console.log(getStorage('info'))}</p>\n      <p>{console.log(getStorage('arr'))}</p>\n    </div>\n  )\n}"}},"dependencies":{"react":{"version":"16.14.0"},"js-common-library":{"version":"1.0.9"}},"identifier":"storage-demo"},
+  },
+  'url-demo': {
+    component: function DumiDemo() {
+  var _interopRequireDefault = require("C:/Users/86157/Desktop/\u5415\u80A5\u80A5\u7684github/npms/js-common-library/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/interopRequireDefault");
+
+  var _react = _interopRequireDefault(require("react"));
+
+  var _jsCommonLibrary = require("js-common-library");
+
+  var _default = function _default() {
+    return /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement("p", null, console.log((0, _jsCommonLibrary.getQueryToObj)())), /*#__PURE__*/_react["default"].createElement("p", null, console.log((0, _jsCommonLibrary.getQueryByName)('name'))), /*#__PURE__*/_react["default"].createElement("p", null, console.log((0, _jsCommonLibrary.getUrlLast)())));
+  };
+
+  return _react["default"].createElement(_default);
+},
+    previewerProps: {"sources":{"_":{"jsx":"import React from 'react'\nimport { getQueryToObj, getQueryByName, getUrlLast } from 'js-common-library'\n\nexport default () => {\n  return (\n    <div>\n      <p>{console.log(getQueryToObj())}</p>\n      <p>{console.log(getQueryByName('name'))}</p>\n      <p>{console.log(getUrlLast())}</p>\n    </div>\n  )\n}"}},"dependencies":{"react":{"version":"16.14.0"},"js-common-library":{"version":"1.0.9"}},"identifier":"url-demo"},
   },
 };

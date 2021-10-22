@@ -9,7 +9,6 @@ const WebpackBar = require('webpackbar')
 const adminConf = require('../utils/index.js')()
 const isPro = process.argv[2] === 'build'
 const env = process.argv[3] && process.argv[3].split('=')[1]
-const adminConf = require('../utils/index.js')()
 
 const pluginsConfig = [
   new WebpackBar(),

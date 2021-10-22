@@ -6,6 +6,7 @@ import { Button } from 'antd-mobile'
 
 import store from './store'
 import styles from './index.less'
+import './index.css'
 
 function Index() {
   return (
@@ -21,6 +22,7 @@ function Index() {
         <Link to={'/detail'}>去详情</Link>
         <Link to={'/list'}>去列表</Link>
       </div>
+      <div className="name">吕肥肥</div>
     </div>
   )
 }

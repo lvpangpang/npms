@@ -33,6 +33,11 @@
           "path": "/storage",
           "title": "Storage",
           "meta": {}
+        },
+        {
+          "path": "/url",
+          "title": "Url",
+          "meta": {}
         }
       ]
     }

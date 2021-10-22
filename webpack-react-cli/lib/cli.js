@@ -28,11 +28,5 @@ module.exports = async function (config) {
   spinner.stop()
   console.log(chalk.green('✔ 模板文件生成成功'))
 
-  try {
-    await exec('yarn -v')
-  } catch (error) {
-    await exec('npm i -g yarn')
-  }
-
   console.log(chalk.green(`cd ${name} && yarn && npm start`))
 }
