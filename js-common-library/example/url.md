@@ -2,7 +2,7 @@
 
 ## 用例
 
-```jsx
+```jsx|pre
 import React from 'react'
 import { getQueryToObj, getQueryByName, getUrlLast } from 'js-common-library'
 

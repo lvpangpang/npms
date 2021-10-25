@@ -25,6 +25,11 @@
           "meta": {}
         },
         {
+          "path": "/math",
+          "title": "Math",
+          "meta": {}
+        },
+        {
           "path": "/object",
           "title": "Object",
           "meta": {}
@@ -50,6 +55,7 @@
   ],
   "navs": {},
   "title": "js-common-library",
+  "logo": "./index.ico",
   "mode": "doc",
   "repository": {
     "url": "",

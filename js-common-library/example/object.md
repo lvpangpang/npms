@@ -2,7 +2,7 @@
 
 ## 用例
 
-```jsx
+```jsx|pre
 import React from 'react'
 import { omitValues } from 'js-common-library'
 

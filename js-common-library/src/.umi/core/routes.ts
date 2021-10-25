@@ -142,6 +142,29 @@ export function getRoutes() {
         "title": "Js-bridge"
       },
       {
+        "path": "/math",
+        "component": require('C:/Users/86157/Desktop/吕肥肥的github/npms/js-common-library/example/math.md').default,
+        "exact": true,
+        "meta": {
+          "filePath": "example/math.md",
+          "updatedTime": 1635129476663,
+          "slugs": [
+            {
+              "depth": 1,
+              "value": "Math",
+              "heading": "math"
+            },
+            {
+              "depth": 2,
+              "value": "用例",
+              "heading": "用例"
+            }
+          ],
+          "title": "Math"
+        },
+        "title": "Math"
+      },
+      {
         "path": "/object",
         "component": require('C:/Users/86157/Desktop/吕肥肥的github/npms/js-common-library/example/object.md').default,
         "exact": true,
@@ -193,7 +216,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "example/url.md",
-          "updatedTime": 1634870743993,
+          "updatedTime": 1634893974000,
           "slugs": [
             {
               "depth": 1,
