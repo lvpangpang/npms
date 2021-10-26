@@ -1,4 +1,4 @@
-const adminConf = require("../utils/index.js")();
+const { getAdminConfig } = require("../utils");
 
 const babelConfig = {
   presets: [
@@ -26,7 +26,7 @@ const babelConfig = {
     ['@babel/plugin-proposal-class-properties', { loose: false }],
     ['import', { libraryName: 'antd', style: 'css' }, 'antd'],
     ['import', { libraryName: 'antd-mobile', style: 'css' }, 'antd-mobile'],
-  ].concat(adminConf.babelPlugins || []),
+  ].concat(getAdminConfig.babelPlugins || []),
 }
 
 module.exports = babelConfig;

@@ -1,6 +1,6 @@
 const webpack = require('webpack')
 const webpackConfig = require('../config/webpack.config.js')
-const { success, error } = require('../utils/info')
+const { success, error } = require('../utils')
 
 webpack(webpackConfig, (err, stats) => {
   if (err || stats.hasErrors()) {

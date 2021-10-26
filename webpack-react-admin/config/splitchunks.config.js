@@ -1,4 +1,4 @@
-const { resolve } = require("path");
+const { resolve } = require('path')
 
 const splitChunksConfig = {
   splitChunks: {
@@ -12,12 +12,12 @@ const splitChunksConfig = {
       },
       antd: {
         name: 'libs/chunk-antd', // 单独将 antd 拆包
-        priority: 20, // 权重要大于 libs 和 app 不然会被打包进 libs 或者 app
+        priority: 20,
         test: /[\\/]node_modules[\\/]antd[\\/]/,
       },
       'antd-moblie': {
         name: 'libs/chunk-antd-mobile', // 单独将 antd-mobile 拆包
-        priority: 20, // 权重要大于 libs 和 app 不然会被打包进 libs 或者 app
+        priority: 20,
         test: /[\\/]node_modules[\\/]antd-mobile[\\/]/,
       },
       commons: {
@@ -31,4 +31,4 @@ const splitChunksConfig = {
   },
 }
 
-module.exports = splitChunksConfig;
+module.exports = splitChunksConfig

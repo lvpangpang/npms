@@ -1,6 +1,6 @@
 const path = require("path");
 const cwd = process.cwd();
-const adminConf = require("../utils/index.js")();
+const { getAdminConfig } = require("../utils");
 const babelConfig = require("./babel.config.js");
 const postCssConfig = require("./postCss.config.js");
 
@@ -48,7 +48,7 @@ const parseConfig = {
       exclude: /node_modules/,
       use: [
         "style-loader",
-        `css-loader${adminConf.isCssModule ? "?modules" : ""}`,
+        `css-loader${getAdminConfig.isCssModule ? "?modules" : ""}`,
         postCssLoader,
         "less-loader",
       ],

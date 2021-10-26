@@ -1,9 +1,13 @@
-var fs = require('fs');
-module.exports = function() {
-  const cwd = process.cwd();
-  if (fs.existsSync(`${cwd}/admin.config.js`)) {
-    return Object.assign({}, require(`${cwd}/admin.config.js`))
-  } else {
-    return {};
-  }
+const getAdminConfig = require('./getAdminConfig')
+const checkAdminVersion = require('./checkAdminVersion')
+const getUnoccupiedPort = require('./getUnoccupiedPort')
+const info = require('./info')
+const open = require('./open')
+
+module.exports = {
+  getAdminConfig,
+  checkAdminVersion,
+  getUnoccupiedPort,
+  ...info,
+  open,
 }
