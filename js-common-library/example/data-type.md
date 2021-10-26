@@ -2,7 +2,7 @@
 
 ## 用例
 
-```jsx|pre
+```javascript
 import React from 'react'
 import { isObj, isEmptyObj, isNum, isStr, isBool, isArr, isFun, isPromise } from 'js-common-library'
 

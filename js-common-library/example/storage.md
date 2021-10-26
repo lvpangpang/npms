@@ -2,7 +2,7 @@
 
 ## 用例
 
-```jsx|pre
+```javascript
 import React from 'react'
 import { setStorage, getStorage } from 'js-common-library'
 

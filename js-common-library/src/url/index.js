@@ -5,6 +5,9 @@ export function getQueryToObj() {
   const query = window.location.search.substring(1)
   const vars = query.split('&')
   const result = {}
+  if(!query) {
+    return {}
+  }
   for (var i = 0; i < vars.length; i++) {
     const pair = vars[i].split('=')
     result[pair[0]] = decodeURIComponent(pair[1])

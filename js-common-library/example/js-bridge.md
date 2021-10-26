@@ -2,7 +2,7 @@
 
 ## 用例
 
-```jsx|pre
+```javascript
 import React from 'react'
 import { jsBridge } from 'js-common-library'
 

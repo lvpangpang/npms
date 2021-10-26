@@ -2,7 +2,7 @@
 
 ## 用例
 
-```jsx|pre
+```javascript
 import React from 'react'
 import { getRandomInt, getRandomNum, getRandomStr } from 'js-common-library'
 

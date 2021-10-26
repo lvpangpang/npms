@@ -2,7 +2,7 @@
 
 ## 用例
 
-```jsx|pre
+```javascript
 import React, { useEffect } from 'react'
 import { http } from 'js-common-library'
 http.defaults.timeout = 300;
