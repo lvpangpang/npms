@@ -1,6 +1,4 @@
-const path = require("path");
-const cwd = process.cwd();
-const { getAdminConfig } = require("../utils");
+const { getAdminConfig, __src } = require("../utils");
 const babelConfig = require("./babel.config.js");
 const postCssConfig = require("./postCss.config.js");
 
@@ -17,7 +15,7 @@ const parseConfig = {
   rules: [
     {
       test: /\.(ts|tsx|js|jsx)$/,
-      include: [path.resolve(`${cwd}/src`)],
+      include: __src,
       use: {
         loader: "babel-loader",
         options: {

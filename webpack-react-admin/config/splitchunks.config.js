@@ -1,4 +1,4 @@
-const { resolve } = require('path')
+const { __src } = require('../utils')
 
 const splitChunksConfig = {
   splitChunks: {
@@ -22,7 +22,7 @@ const splitChunksConfig = {
       },
       commons: {
         name: 'common/chunk-comomns',
-        test: resolve('src'),
+        test: __src,
         minChunks: 2,
         priority: 5,
         reuseExistingChunk: true,

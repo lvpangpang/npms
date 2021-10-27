@@ -1,10 +1,17 @@
 const webpack = require('webpack')
 const webpackDevServer = require('webpack-dev-server')
 const webpackConfig = require('../config/webpack.config.js')
-const { getAdminConfig, getUnoccupiedPort, open, checkAdminVersion } = require('../utils')
+const {
+  getAdminConfig,
+  getUnoccupiedPort,
+  open,
+  checkAdminVersion,
+  checkPackageJsonVersion,
+} = require('../utils')
 
 async function start() {
   checkAdminVersion()
+  checkPackageJsonVersion()
   const port = await getUnoccupiedPort(getAdminConfig.port)
   const options = Object.assign(webpackConfig.devServer, { port })
   webpackDevServer.addDevServerEntrypoints(webpackConfig, options)

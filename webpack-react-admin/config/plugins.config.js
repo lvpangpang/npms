@@ -1,17 +1,18 @@
 const path = require('path')
-const cwd = process.cwd()
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CopyPlugin = require('copy-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
 const WebpackBar = require('webpackbar')
 
-const { getAdminConfig } = require('../utils')
-const isPro = process.argv[2] === 'build'
-const env = process.argv[3] && process.argv[3].split('=')[1]
+const { getAdminConfig, __public, __publicIndexHtml, __dist } = require('../utils')
+const ENV = process.argv[3] && process.argv[3].split('=')[1]
 
-const pluginsConfig = [
+const PluginsConfig = [
+  new webpack.DefinePlugin({
+    __ENV__: JSON.stringify(ENV),
+  }),
   new WebpackBar(),
   getAdminConfig.useEslint
     ? new ESLintPlugin({
@@ -22,23 +23,18 @@ const pluginsConfig = [
         extensions: ['js', 'jsx', 'tsx'],
       })
     : () => {},
-  new webpack.DefinePlugin({
-    __ENV__: JSON.stringify(env),
-  }),
-  isPro ? new CleanWebpackPlugin() : function () {},
+  new CleanWebpackPlugin(),
   new HtmlWebpackPlugin({
-    template: path.resolve(`${cwd}/public/index.html`),
+    template: __publicIndexHtml,
   }),
-  isPro
-    ? new CopyPlugin({
-        patterns: [
-          {
-            from: path.resolve(`${cwd}/public`),
-            to: path.resolve(`${cwd}/dist`),
-          },
-        ],
-      })
-    : function () {},
+  new CopyPlugin({
+    patterns: [
+      {
+        from: __public,
+        to: __dist,
+      },
+    ],
+  }),
 ].concat(getAdminConfig.plugins || [])
 
-module.exports = pluginsConfig
+module.exports = PluginsConfig

@@ -1,9 +1,9 @@
 const fs = require('fs')
+const { __adminConfig } = require('./paths')
 
 function getAdminConfig() {
-  const cwd = process.cwd()
-  if (fs.existsSync(`${cwd}/admin.config.js`)) {
-    return Object.assign({}, require(`${cwd}/admin.config.js`))
+  if (fs.existsSync(__adminConfig)) {
+    return Object.assign({}, require(__adminConfig))
   } else {
     return {}
   }
