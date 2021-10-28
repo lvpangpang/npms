@@ -6,19 +6,24 @@ const {
   getUnoccupiedPort,
   open,
   checkAdminVersion,
-  checkPackageJsonVersion
+  checkPackageJsonVersion,
 } = require('../utils')
 
 async function start() {
-  checkAdminVersion()
-  checkPackageJsonVersion()
+  // checkAdminVersion()
+  // checkPackageJsonVersion()
   const port = await getUnoccupiedPort(getAdminConfig.port)
   const options = Object.assign(webpackConfig.devServer, { port })
-  webpackDevServer.addDevServerEntrypoints(webpackConfig, options)
   const compiler = webpack(webpackConfig)
-  const devServer = new webpackDevServer(compiler, options)
-  open(port)
-  devServer.listen(port, options.host)
+  const devServer = new webpackDevServer(options, compiler)
+  let opened = false
+  compiler.hooks.done.tap('done', async () => {
+    if (!opened) {
+      opened = true
+      open(port)
+    }
+  })
+  devServer.start()
 }
 
 start()

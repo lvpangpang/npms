@@ -5,7 +5,7 @@ const isPro = process.argv[2] === 'build'
 const splitchunksConfig = require('./splitchunks.config.js')
 const parseConfig = require('./parse.config.js')
 const pluginsConfig = require('./plugins.config.js')
-const { getAdminConfig, __src, __dist } = require('../utils')
+const { getAdminConfig, __src, __dist, __public } = require('../utils')
 
 module.exports = {
   // 模式
@@ -21,12 +21,13 @@ module.exports = {
     chunkFilename: 'js/[name].[contenthash].js',
     publicPath: isPro ? getAdminConfig.publicPath || '/' : '/',
   },
+  stats: 'errors-only',
   // 分包策略
   optimization: splitchunksConfig,
   // 解析
   resolve: {
     alias: {
-      '@': __src
+      '@': __src,
     },
     extensions: ['.ts', '.tsx', '.jsx', '.js', '.css', '.less'],
   },
@@ -36,11 +37,20 @@ module.exports = {
   plugins: pluginsConfig,
   // 开发服务器
   devServer: getAdminConfig.devServer || {
-    stats: 'errors-only',
     historyApiFallback: true,
     host: ip.address(),
-    contentBase: [path.resolve(`${cwd}/dist`), path.resolve(`${cwd}/public`)],
+    hot: true,
+    static: {
+      directory: __public,
+      publicPath: '/',
+      watch: true,
+    },
     compress: true,
-    overlay: true, // 错误显示在浏览器
+    client: {
+      overlay: {
+        errors: true,
+        warnings: false,
+      },
+    },
   },
 }

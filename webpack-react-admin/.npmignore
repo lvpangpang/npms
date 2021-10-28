@@ -5,3 +5,5 @@ tsconfig.json
 dist
 package-lock.json
 yarn.lock
+test1
+test2
