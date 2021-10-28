@@ -5,6 +5,7 @@ const getUnoccupiedPort = require('./getUnoccupiedPort')
 const info = require('./info')
 const open = require('./open')
 const paths = require('./paths')
+const env = require('./env')
 
 module.exports = {
   getAdminConfig,
@@ -14,4 +15,5 @@ module.exports = {
   ...info,
   open,
   ...paths,
+  ...env
 }

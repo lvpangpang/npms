@@ -2,7 +2,7 @@
   "name": "example",
   "private": true,
   "scripts": {
-    "start": "node ../bin/index.js start",
+    "start": "node ../bin/index.js start env=qa name=lvfeifei",
     "build": "node ../bin/index.js build"
   },
   "prettier": {
@@ -15,6 +15,6 @@
     "antd": "^4.16.11"
   },
   "devDependencies": {
-    "webpack-react-admin": "1.11.2"
+    "webpack-react-admin": "1.11.3"
   }
 }

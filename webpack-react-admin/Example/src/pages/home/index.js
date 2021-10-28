@@ -8,6 +8,8 @@ import store from './store'
 import styles from './index.less'
 import './index.css'
 
+console.log(__ENV__)
+
 function Index() {
   return (
     <div className={styles.home_box}>

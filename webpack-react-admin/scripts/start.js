@@ -6,7 +6,7 @@ const {
   getUnoccupiedPort,
   open,
   checkAdminVersion,
-  checkPackageJsonVersion,
+  checkPackageJsonVersion
 } = require('../utils')
 
 async function start() {

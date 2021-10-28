@@ -8,7 +8,7 @@
 4. 自动使用空闲端口启动服务
 5. 支持 less 模块化,css 不做模块化
 6. 对 antd，antd-mobile 库自动按需打包
-7. 快捷配置环境变量
+7. 快捷配置多个环境变量
 
 ## 1.Install
 
@@ -23,7 +23,7 @@ npm install webpack-react-admin --D
 {
   "script": {
     //开发
-    "start": "webpack-react-admin env=aa", // 这是设置环境为aa，然后在业务代码里面就可以通过__ENV__获取到当前环境的值
+    "start": "webpack-react-admin env=aa name=lvfeifei", // 在业务代码里面就可以通过__ENV__.env获取到当前环境的值，__ENV__.name获取到name
     //打包
     "build": "webpack-react-admin build"
   }

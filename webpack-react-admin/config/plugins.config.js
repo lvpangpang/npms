@@ -6,12 +6,11 @@ const CopyPlugin = require('copy-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
 const WebpackBar = require('webpackbar')
 
-const { getAdminConfig, __public, __publicIndexHtml, __dist } = require('../utils')
-const ENV = process.argv[3] && process.argv[3].split('=')[1]
+const { getAdminConfig, getProcessArgv, __public, __publicIndexHtml, __dist } = require('../utils')
 
 const PluginsConfig = [
   new webpack.DefinePlugin({
-    __ENV__: JSON.stringify(ENV),
+    __ENV__: JSON.stringify(getProcessArgv()),
   }),
   new WebpackBar(),
   getAdminConfig.useEslint

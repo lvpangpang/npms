@@ -2,10 +2,10 @@ const path = require('path')
 const ip = require('ip')
 const cwd = process.cwd()
 const isPro = process.argv[2] === 'build'
-const { getAdminConfig } = require('../utils')
 const splitchunksConfig = require('./splitchunks.config.js')
 const parseConfig = require('./parse.config.js')
 const pluginsConfig = require('./plugins.config.js')
+const { getAdminConfig, __src, __dist } = require('../utils')
 
 module.exports = {
   // 模式
@@ -16,7 +16,7 @@ module.exports = {
   entry: path.resolve(`${cwd}${getAdminConfig.entry || '/src/index.js'}`),
   // 出口
   output: getAdminConfig.output || {
-    path: path.resolve(`${cwd}/dist`),
+    path: __dist,
     filename: 'js/index.[contenthash].js',
     chunkFilename: 'js/[name].[contenthash].js',
     publicPath: isPro ? getAdminConfig.publicPath || '/' : '/',
@@ -25,8 +25,8 @@ module.exports = {
   optimization: splitchunksConfig,
   // 解析
   resolve: {
-    alias: getAdminConfig.alias || {
-      '@': path.resolve(`${cwd}/src/`),
+    alias: {
+      '@': __src
     },
     extensions: ['.ts', '.tsx', '.jsx', '.js', '.css', '.less'],
   },
