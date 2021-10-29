@@ -7,7 +7,14 @@ const CopyPlugin = require('copy-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
 const WebpackBar = require('webpackbar')
 
-const { getAdminConfig, getProcessArgv, __public, __publicIndexHtml, __dist } = require('../utils')
+const {
+  getAdminConfig,
+  getProcessArgv,
+  __public,
+  __publicIndexHtml,
+  __dist,
+  resolvePath,
+} = require('../utils')
 
 const PluginsConfig = [
   new webpack.DefinePlugin({
@@ -18,15 +25,25 @@ const PluginsConfig = [
   new HtmlWebpackPlugin({
     template: __publicIndexHtml,
   }),
-  new CopyPlugin({
-    patterns: [
-      {
-        from: __public,
-        to: __dist,
-      },
-    ],
-  }),
 ]
+
+if (getAdminConfig.useCopyPublic) {
+  PluginsConfig.push(
+    new CopyPlugin({
+      patterns: [
+        {
+          from: __public,
+          globOptions: {
+            ignore: ['**/*index.html'],
+          },
+          to: __dist,
+        },
+      ],
+    })
+  )
+}
+
+// 是否启动eslint
 if (getAdminConfig.useEslint) {
   PluginsConfig.push(
     new ESLintPlugin({
@@ -38,29 +55,38 @@ if (getAdminConfig.useEslint) {
     })
   )
 }
-// if (getAdminConfig.micList) {
-//   new ModuleFederationPlugin({
-//     // 提供给其他服务加载的文件
-//     filename: 'remoteEntry.js',
-//     // 唯一ID，用于标记当前服务
-//     name: 'test1',
-//     // 需要暴露的模块，使用时通过 `${name}/${expose}` 引入
-//     exposes: {
-//       './List': '../src/pages/home',
-//     },
-//   })
-// }
-// if (getAdminConfig.useMicList) {
-//   PluginsConfig.push(
-//     new ModuleFederationPlugin({
-//       name: 'app1',
-//       // 引用 app2 的服务
-//       remotes: {
-//         app2: 'app2@http://localhost:3002/remoteEntry.js',
-//       },
-//     })
-//   )
-// }
+
+/* // 作为资源提供者
+const micList = getAdminConfig.micList
+if (micList) {
+  PluginsConfig.push(
+    new ModuleFederationPlugin({
+      // 提供给其他服务加载的文件
+      filename: 'entry.js',
+      // 唯一ID，用于标记当前服务
+      name: 'app1',
+      // 需要暴露的模块，使用时通过 `${name}/${expose}` 引入
+      exposes: {
+        './List': resolvePath('src/pages/home'),
+      },
+    })
+  )
+}
+
+// 获取远程资源提供者
+const useMicList = getAdminConfig.useMicList
+if (useMicList) {
+  PluginsConfig.push(
+    new ModuleFederationPlugin({
+      name: 'app2',
+      // 引用 app1 的服务
+      remotes: {
+        app1: 'app1@http://26.26.26.1:3000/entry.js',
+      },
+    })
+  )
+} */
+
 PluginsConfig.concat(getAdminConfig.plugins || [])
 
 module.exports = PluginsConfig

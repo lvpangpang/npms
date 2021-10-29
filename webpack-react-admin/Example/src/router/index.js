@@ -3,6 +3,7 @@ import { Router, Switch, Route } from 'react-router-dom'
 
 import history from './history'
 
+// 这里如果引用的是远程资源就可以实现切换路由时候加载的是远程资源
 const Home = React.lazy(() => import('../pages/home'))
 const Detail = React.lazy(() => import('../pages/detail'))
 const List = React.lazy(() => import('../pages/list'))

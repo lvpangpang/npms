@@ -10,8 +10,8 @@ const {
 } = require('../utils')
 
 async function start() {
-  // checkAdminVersion()
-  // checkPackageJsonVersion()
+  checkAdminVersion()
+  checkPackageJsonVersion()
   const port = await getUnoccupiedPort(getAdminConfig.port)
   const options = Object.assign(webpackConfig.devServer, { port })
   const compiler = webpack(webpackConfig)

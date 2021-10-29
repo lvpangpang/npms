@@ -7,6 +7,7 @@ import { Button } from 'antd-mobile'
 import store from './store'
 import styles from './index.less'
 import './index.css'
+import List from '@/List'
 
 console.log(__ENV__)
 
@@ -25,6 +26,7 @@ function Index() {
         <Link to={'/list'}>去列表</Link>
       </div>
       <div className="name">吕肥肥</div>
+      <List></List>
     </div>
   )
 }

@@ -1,4 +1,5 @@
 module.exports = {
-  isCssModule: true
+  isCssModule: true,
+  micList: {}
 }
 

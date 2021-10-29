@@ -1,6 +1,6 @@
 {
   "name": "webpack-react-admin",
-  "version": "1.11.3",
+  "version": "1.11.5",
   "description": "快速搭建前端React项目，减少webpack配置学习成本",
   "main": "index.js",
   "bin": {
@@ -25,7 +25,7 @@
     "babel-plugin-import": "1.13.1",
     "chalk": "4.1.1",
     "clean-webpack-plugin": "3.0.0",
-    "copy-webpack-plugin": "6.1.1",
+    "copy-webpack-plugin": "^9.0.1",
     "core-js": "3.12.1",
     "cross-env": "7.0.2",
     "css-loader": "3.5.3",
@@ -35,7 +35,7 @@
     "eslint-friendly-formatter": "4.0.1",
     "eslint-webpack-plugin": "2.5.4",
     "fs-extra": "10.0.0",
-    "html-webpack-plugin": "4.2.0",
+    "html-webpack-plugin": "^5.5.0",
     "ip": "1.1.5",
     "less": "3.11.2",
     "less-loader": "6.1.0",
@@ -48,7 +48,7 @@
     "style-loader": "1.2.0",
     "uglifyjs-webpack-plugin": "2.2.0",
     "url-loader": "4.1.1",
-    "webpack": "5.11.1",
+    "webpack": "^5.60.0",
     "webpack-dev-server": "4.0.0",
     "webpack-merge": "4.2.2",
     "webpackbar": "2.6.4"

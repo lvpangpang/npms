@@ -9,6 +9,7 @@
 5. 支持 less 模块化,css 不做模块化
 6. 对 antd，antd-mobile 库自动按需打包
 7. 快捷配置多个环境变量
+8. 支持拷贝静态文件到dist
 
 ## 1.Install
 
@@ -58,3 +59,4 @@ npm install webpack-react-admin --D
 | port         | 开发服务器端口号 | 默认值：1234                                                                                |
 | babelPlugins | babel 插件配置   |
 | isCssModule | 是否开启less模块化   | css不走模块化
+| useCopyPublic | 是否开启拷贝public文件夹下面所有静态文件到dist | 默认不开启
