@@ -7,20 +7,25 @@ const {
   open,
   checkAdminVersion,
   checkPackageJsonVersion,
+  createIndex,
 } = require('../utils')
 
 async function start() {
+  const { port, useFileRouter } = getAdminConfig
   checkAdminVersion()
   checkPackageJsonVersion()
-  const port = await getUnoccupiedPort(getAdminConfig.port)
-  const options = Object.assign(webpackConfig.devServer, { port })
+  if (useFileRouter) {
+    createIndex()
+  }
+  const port1 = await getUnoccupiedPort(port)
+  const options = Object.assign(webpackConfig.devServer, { port: port1 })
   const compiler = webpack(webpackConfig)
   const devServer = new webpackDevServer(options, compiler)
   let opened = false
   compiler.hooks.done.tap('done', async () => {
     if (!opened) {
       opened = true
-      open(port)
+      open(port1)
     }
   })
   devServer.start()

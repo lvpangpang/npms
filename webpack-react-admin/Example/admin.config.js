@@ -1,5 +1,6 @@
 module.exports = {
   isCssModule: true,
-  useCopyPublic: true
+  useCopyPublic: true,
+  useFileRouter: true
 }
 

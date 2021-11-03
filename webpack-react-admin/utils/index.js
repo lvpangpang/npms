@@ -6,6 +6,8 @@ const info = require('./info')
 const open = require('./open')
 const paths = require('./paths')
 const env = require('./env')
+const createRoutes = require('./init/createRoutes')
+const createIndex = require('./init/createIndex')
 
 module.exports = {
   getAdminConfig,
@@ -15,5 +17,7 @@ module.exports = {
   ...info,
   open,
   ...paths,
-  ...env
+  ...env,
+  createRoutes,
+  createIndex
 }

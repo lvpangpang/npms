@@ -1,4 +1,4 @@
-const { getAdminConfig, __src } = require("../utils");
+const { getAdminConfig, __src, __admin } = require("../utils");
 const babelConfig = require("./babel.config.js");
 const postCssConfig = require("./postCss.config.js");
 
@@ -15,7 +15,7 @@ const parseConfig = {
   rules: [
     {
       test: /\.(ts|tsx|js|jsx)$/,
-      include: __src,
+      include: [__src, __admin],
       use: {
         loader: "babel-loader",
         options: {

@@ -3,7 +3,9 @@ const isPro = process.argv[2] === 'build'
 const splitchunksConfig = require('./splitchunks.config.js')
 const parseConfig = require('./parse.config.js')
 const pluginsConfig = require('./plugins.config.js')
-const { getAdminConfig, __src, __dist, __public, resolvePath } = require('../utils')
+const { getAdminConfig, __src, __dist, __public, resolvePath, __adminIndex } = require('../utils')
+
+const { useFileRouter, entry, publicPath } = getAdminConfig
 
 module.exports = {
   // 模式
@@ -11,13 +13,13 @@ module.exports = {
   // 开发环境开启源代码查看功能
   devtool: isPro ? false : 'inline-source-map',
   // 入口
-  entry: resolvePath(getAdminConfig.entry || 'src/index.js'),
+  entry: useFileRouter ? __adminIndex : resolvePath(entry || 'src/index.js'),
   // 出口
-  output: getAdminConfig.output || {
+  output: {
     path: __dist,
     filename: 'js/index.[contenthash].js',
     chunkFilename: 'js/[name].[contenthash].js',
-    publicPath: isPro ? getAdminConfig.publicPath || '/' : '/'
+    publicPath: isPro ? publicPath || '/' : '/',
   },
   stats: 'errors-only',
   // 分包策略
@@ -34,7 +36,7 @@ module.exports = {
   // 插件
   plugins: pluginsConfig,
   // 开发服务器
-  devServer: getAdminConfig.devServer || {
+  devServer: {
     historyApiFallback: true,
     host: ip.address(),
     hot: true,

@@ -1,7 +1,11 @@
 const webpack = require('webpack')
 const webpackConfig = require('../config/webpack.config.js')
-const { success, error } = require('../utils')
+const { success, error, createIndex, getAdminConfig } = require('../utils')
 
+const { useFileRouter } = getAdminConfig
+if (useFileRouter) {
+  createIndex()
+}
 webpack(webpackConfig, (err, stats) => {
   if (err || stats.hasErrors()) {
     error(err)
