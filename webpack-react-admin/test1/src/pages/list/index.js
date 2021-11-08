@@ -4,7 +4,7 @@ import { Button } from 'antd'
 function Index(props) {
   return (
     <div>
-      <Button type="primary">清空</Button>
+      吕肥肥
     </div>
   )
 }

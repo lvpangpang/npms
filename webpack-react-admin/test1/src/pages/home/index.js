@@ -26,7 +26,7 @@ function Index() {
         <Link to={'/list'}>去列表</Link>
       </div>
       <div className="name">吕肥肥</div>
-      <List></List>
+      {/* <List></List> */}
     </div>
   )
 }

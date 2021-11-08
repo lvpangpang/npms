@@ -8,6 +8,7 @@ const paths = require('./paths')
 const env = require('./env')
 const createRoutes = require('./init/createRoutes')
 const createIndex = require('./init/createIndex')
+const beautifyBuild = require('./beautyBuild')
 
 module.exports = {
   getAdminConfig,
@@ -19,5 +20,6 @@ module.exports = {
   ...paths,
   ...env,
   createRoutes,
-  createIndex
+  createIndex,
+  beautifyBuild,
 }

@@ -11,9 +11,13 @@ const {
 } = require('../utils')
 
 async function start() {
-  const { port, useFileRouter } = getAdminConfig
-  checkAdminVersion()
-  checkPackageJsonVersion()
+  const { port, useFileRouter, checkAdmin, checkPackage } = getAdminConfig
+  if(checkAdmin) {
+    checkAdminVersion()
+  }
+  if(checkPackage) {
+    checkPackageJsonVersion()
+  }
   if (useFileRouter) {
     createIndex()
   }

@@ -5,7 +5,7 @@ const parseConfig = require('./parse.config.js')
 const pluginsConfig = require('./plugins.config.js')
 const { getAdminConfig, __src, __dist, __public, resolvePath, __adminIndex } = require('../utils')
 
-const { useFileRouter, entry, publicPath } = getAdminConfig
+const { useFileRouter, entry, publicPath, micList } = getAdminConfig
 
 module.exports = {
   // 模式
@@ -17,13 +17,13 @@ module.exports = {
   // 出口
   output: {
     path: __dist,
-    filename: 'js/index.[contenthash].js',
-    chunkFilename: 'js/[name].[contenthash].js',
-    publicPath: isPro ? publicPath || '/' : '/',
+    filename: 'js/main.[contenthash].js',
+    chunkFilename: 'js/chunk.[contenthash].js',
+    publicPath: publicPath ? publicPath : '/'
   },
   stats: 'errors-only',
   // 分包策略
-  optimization: splitchunksConfig,
+  optimization: micList ? {} : splitchunksConfig,
   // 解析
   resolve: {
     alias: {

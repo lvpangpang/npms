@@ -67,7 +67,7 @@ if (micList) {
       name: 'app1',
       // 需要暴露的模块，使用时通过 `${name}/${expose}` 引入
       exposes: {
-        './List': resolvePath('src/pages/home'),
+        './List': resolvePath('src/List'),
       },
     })
   )
@@ -85,8 +85,8 @@ if (useMicList) {
       },
     })
   )
-} */
-
+}
+ */
 PluginsConfig.concat(getAdminConfig.plugins || [])
 
 module.exports = PluginsConfig

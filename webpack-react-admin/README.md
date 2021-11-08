@@ -11,6 +11,9 @@
 7. 快捷配置多个环境变量
 8. 支持拷贝静态文件到dist
 9. 支持文件式路由
+10. 支持图表化显示打包输出信息
+11. 项目启动前自动检测脚手架是否是最新版本
+12. 项目启动前自动检测本地依赖和package.json中版本是否一致
 ## 1.Install
 
 ```bash
@@ -60,4 +63,7 @@ npm install webpack-react-admin --D
 | isCssModule | 是否开启less模块化   | css不走模块化 | 
 | useCopyPublic | 是否开启拷贝public文件夹下面所有静态文件到dist | 默认不开启 |
 | useFileRouter | 是否开启文件式路由 | 默认不开启 |
+| checkAdmin | 项目启动前自动检测脚手架是否是最新版本 | 默认不开启 |
+| checkPackage | 项目启动前自动检测本地依赖和package.json中版本是否一致 | 默认不开启 |
+
 
