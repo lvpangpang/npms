@@ -3,7 +3,7 @@ import { Link, Redirect, useHistory } from 'react-router-dom'
 import { Menu, Breadcrumb } from 'antd'
 import { AppstoreOutlined } from '@ant-design/icons'
 
-import User from './user'
+import User from './User.js'
 import style from './index.less'
 
 import DATA from './data'
@@ -49,7 +49,6 @@ function App({ children }) {
     pathChange(window.location.pathname)
     // 监听路由变化
     history.listen((location) => {
-      console.log(location)
       const { pathname } = location
       pathChange(pathname)
     })
@@ -63,7 +62,7 @@ function App({ children }) {
   return (
     <div className={style.layout}>
       <div className={style.menu}>
-        <div className={style.title}>火腿管理系统</div>
+        <div className={style.title}>XX管理系统</div>
         <Menu mode="inline" openKeys={[two + '']} selectedKeys={[three + '']}>
           {menu?.length > 0 &&
             menu.map((item) => {
@@ -76,7 +75,7 @@ function App({ children }) {
                     setTwo(item.id)
                   }}
                 >
-                  {item?.children?.map((item1) => {
+                  {item.children?.map((item1) => {
                     return (
                       <Item
                         key={item1.id}
@@ -96,6 +95,9 @@ function App({ children }) {
       </div>
       <div className={style.main}>
         <div className={style.header}>
+          <div className={style.user}>
+            <User></User>
+          </div>
           <div className={style.header_list}>
             <Menu
               selectedKeys={[one + '']}
@@ -116,9 +118,6 @@ function App({ children }) {
                 return <Item key={item.id}>{item.title}</Item>
               })}
             </Menu>
-          </div>
-          <div className={style.user}>
-            <User></User>
           </div>
         </div>
         <div className={style.content}>

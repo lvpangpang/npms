@@ -4,7 +4,7 @@
 
 ```javascript
 import React from 'react'
-import { setStorage, getStorage } from 'js-common-library'
+import { setStorage, getStorage, removeStorage, clearStorage } from 'js-common-library'
 
 export default () => {
   return (
@@ -16,6 +16,8 @@ export default () => {
       <p>{console.log(getStorage('name'))}</p>
       <p>{console.log(getStorage('info'))}</p>
       <p>{console.log(getStorage('arr'))}</p>
+      <p>{console.log(removeStorage('arr'))}</p>
+      <p>{console.log(clearStorage())}</p>
     </div>
   )
 }

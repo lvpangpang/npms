@@ -78,7 +78,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "example/data-type.md",
-          "updatedTime": 1635132407000,
+          "updatedTime": 1635217480000,
           "slugs": [
             {
               "depth": 1,
@@ -101,7 +101,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "example/http.md",
-          "updatedTime": 1635132407000,
+          "updatedTime": 1635217480000,
           "slugs": [
             {
               "depth": 1,
@@ -124,7 +124,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "example/js-bridge.md",
-          "updatedTime": 1635132407000,
+          "updatedTime": 1635217480000,
           "slugs": [
             {
               "depth": 1,
@@ -147,7 +147,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "example/math.md",
-          "updatedTime": 1635132407000,
+          "updatedTime": 1635217480000,
           "slugs": [
             {
               "depth": 1,
@@ -170,7 +170,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "example/object.md",
-          "updatedTime": 1635132407000,
+          "updatedTime": 1635217480000,
           "slugs": [
             {
               "depth": 1,
@@ -193,7 +193,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "example/storage.md",
-          "updatedTime": 1635132407000,
+          "updatedTime": 1635217480000,
           "slugs": [
             {
               "depth": 1,
@@ -216,7 +216,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "example/url.md",
-          "updatedTime": 1635132407000,
+          "updatedTime": 1635217480000,
           "slugs": [
             {
               "depth": 1,

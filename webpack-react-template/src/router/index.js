@@ -12,12 +12,10 @@ export default function Index() {
           <Login></Login>
         </Route>
         <Main>
-          <Suspense fallback={<></>}>
+          <Suspense fallback={<>loading...</>}>
             {RouterMap.map((item) => {
               return (
-                <Route exact key={item.path} path={item.path}>
-                  <item.component></item.component>
-                </Route>
+                <Route exact key={item.path} path={item.path} component={item.component}></Route>
               )
             })}
           </Suspense>

@@ -1,25 +1,14 @@
-import { makeAutoObservable, action } from 'mobx'
-import history from '../../router/history'
-// import { resetStore } from '@sd/components'
-// import { setToken } from '@/utils'
+import { makeAutoObservable } from 'mobx'
+import { setStorage } from 'js-common-library'
 import Api from './Api'
-
 class Store {
   constructor() {
     makeAutoObservable(this)
   }
   loading = false
   login = async (values) => {
-    // this.loading = true
-    // const { token } = await Api.login(values).finally(
-    //   action(() => {
-    //     this.loading = false
-    //   })
-    // )
-    // // setToken(token)
-    localStorage.setItem('token', 123)
+    setStorage('token', 123)
     window.location.href = '/'
-    // history.replace('/')
   }
   /*
   短信验证码倒计时

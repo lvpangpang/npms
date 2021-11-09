@@ -1,6 +1,6 @@
 const data = {
   id: 100,
-  username: 'lvdaofeng',
+  username: '吕肥肥',
   roleNameDisplays: ['ABC'],
   roleNames: ['yzAAZSVa'],
   phone: '15757135988',
@@ -16,7 +16,10 @@ const data = {
           id: 27,
           title: '用户管理',
           path: '/#',
-          children: [{ id: 28, title: '用户列表', path: '/user/list', children: null }],
+          children: [
+            { id: 28, title: '用户列表', path: '/user/list', children: null },
+            { id: 29, title: '司机列表', path: '/user/driverList', children: null },
+          ],
         },
       ],
     },
