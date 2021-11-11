@@ -3,15 +3,16 @@ import { Link } from 'react-router-dom'
 import { observer } from 'mobx-react-lite'
 
 import { Button } from 'antd-mobile'
-import {http} from 'js-common-library'
+import { http } from 'js-common-library'
+import axios from 'axios'
 
 import store from './store'
 import styles from './index.less'
 import './index.css'
 
-import '@/mock.js'
+// import '@/mock.js'
 
-http.get('/route1').then((data) => {
+http.get('/api1').then((data) => {
   console.log(data)
 })
 

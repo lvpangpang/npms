@@ -1,8 +1,6 @@
-// 引入mockjs
-const Mock = require('mockjs')
-// 使用mockjs模拟数据
-Mock.mock('/route1', (req, res) => {
-  // 当post或get请求到/api/data路由时Mock会拦截请求并返回上面的数据
+import Mock from 'mockjs'
+
+module.exports =  Mock.mock('/api1', (req, res) => {
   let list = [
     {
       date: '2016-05-02',
