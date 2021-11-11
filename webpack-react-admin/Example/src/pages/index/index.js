@@ -3,12 +3,17 @@ import { Link } from 'react-router-dom'
 import { observer } from 'mobx-react-lite'
 
 import { Button } from 'antd-mobile'
+import {http} from 'js-common-library'
 
 import store from './store'
 import styles from './index.less'
 import './index.css'
 
-console.log(__ENV__)
+import '@/mock.js'
+
+http.get('/route1').then((data) => {
+  console.log(data)
+})
 
 function Index() {
   return (
